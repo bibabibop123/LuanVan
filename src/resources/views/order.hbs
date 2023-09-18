@@ -1,0 +1,42 @@
+<table class="tbl-order table table-striped">
+  <thead>
+    <tr>
+      <th class="order-stt">Stt</th>
+      <th class="order-name">Tên hàng</th>
+      <th class="order-number">Số lượng</th>
+      <th class="order-total">Tổng tiền</th>
+      <th class="order-status">Trạng thái</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orders}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.products.[0].name}}</td>
+      <td>{{this.products.[0].quality}}</td>
+      <td>{{this.total}}</td>
+      {{#if (equal this.status 'da_dat_hang')}}
+        <td class="order-wait">
+            Chờ xác nhận
+        </td>
+      {{/if}}
+      {{!-- {{#if (equal this.status 'doi_thanh_toan')}}
+        <td class="order-confirm">
+            Đợi thanh toán
+        </td>
+      {{/if}} --}}
+      {{#if (equal this.status 'xac_nhan')}}
+        <td class="order-confirm">
+            Đã xác nhận
+        </td>
+      {{/if}}
+      {{#if (equal this.status 'da_huy')}}
+        <td class="order-cancel">
+            Đã hủy
+        </td>
+      {{/if}}
+      
+    {{/each}}
+    </tr>
+  </tbody>
+</table>

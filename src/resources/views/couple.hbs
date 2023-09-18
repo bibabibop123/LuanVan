@@ -1,0 +1,22 @@
+<div class="Container">
+    <h2 class="title text-left mona_title">ĐỒNG HỒ ĐÔI <hr></h2>
+	<div class="mt-4 ">
+		<div class="row">
+			{{#each couplelist}}
+			<div class="col-3 mt-4 mb-4 height">
+				<div class="card card-item border border-white border-0">
+					<a href="/courses/{{this.name_content}}">
+						<img class="card-img-top" src="{{this.img}}" alt="Card image cap">
+					</a>
+					<div class="card-body">
+						<a href="/detail/{{this.name_content}}" class="text-dark">
+							<h5 class="card-title break-word text-center">{{this.name_content}}</h5>
+							<p class="card-text text-center">{{this.total}}$</p>
+						</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,73 @@
+<section class="vh-100 user">
+  <div class="container py-5 h-100">
+    <div class=" form-user row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Thông tin khách hàng</h3>
+            <p class="title-user">Vui lòng kiểm tra thông tin trước khi xác nhận</p>
+            <form method="post" action="/user">
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <label class="form-label" for="firstName">Tên đệm</label>
+                    <input type="text" id="firstName" class="form-control form-control-lg" name="firstName" value="{{userInfo.firstName}}"/>
+
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <label class="form-label" for="lastName">Tên</label>
+                    <input type="text" id="lastName" class="form-control form-control-lg" name="lastName" value="{{userInfo.lastName}}"/>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-control form-control-lg" name="email" value="{{userInfo.email}}"/>
+                    
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline datepicker w-100">
+                    <label class="form-label" for="phoneNumber">Số điện thoại</label>
+                    <input type="tel" id="phoneNumber" class="form-control form-control-lg" name="phoneNumber" value="{{userInfo.phoneNumber}}"/>
+                  </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 mb-4 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="address">Địa chỉ</label>
+                    <input type="tel" id="address" class="form-control form-control-lg" name="address" value="{{userInfo.address}}" />
+                  </div>
+                </div>
+                <div class=" change-pass col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <a href="/change-password/">Thay đổi mật khẩu</a>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-2">
+                <input class="btn btn-primary btn-lg" type="submit" value="Thay đổi" />
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

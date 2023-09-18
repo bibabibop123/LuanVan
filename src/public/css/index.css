@@ -1,0 +1,74 @@
+.item {
+    margin-top: 10px;
+    font-size: 40px;
+    color: #ffff;
+    text-align: center;
+    min-height: 380px;
+    line-height: 250px;
+    background-color: orange;
+}
+
+.mona_title {
+    color: #3c3451;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 32px;
+    margin-bottom: 16px;
+    padding-bottom: 25px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    clear: both;
+    font-family: 'Roboto Slab', serif;
+}
+
+img {
+    height: 70%;
+    width: 100%;
+}
+
+p {
+    font-size: 10px;
+    margin-top: 0;
+}
+
+/* FOOTER*/
+  
+  .text-small {
+    font-size: 0.9rem;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  a:hover, a:focus {
+    text-decoration: none;
+  }
+  
+  .form-control {
+    background: #212529;
+    border-color: #545454;
+  }
+  
+  .form-control:focus {
+    background: #212529;
+  }
+  
+  footer {
+    background-image: url(./img-content/pngtree-atmospheric-black-watch-promotion-banner-image_179454.jpg);
+  }
+  
+  
+  /* ==========================================
+      CUSTOM UTILS CLASSES
+    ========================================== */
+    body, html {
+      height: 100%;
+    }
+
+    .menu {
+      background: rgba(0,0,0,0.5);
+    }

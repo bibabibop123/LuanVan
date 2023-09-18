@@ -1,0 +1,1001 @@
+.input-group {
+  display: flex !important;
+  align-items: center !important;
+  width: 100%;
+
+  form {
+    width: 100%;
+    margin-left: 30px;
+  }
+
+  .form-control {
+    width: 80% !important;
+    border-radius: 0 !important;
+    margin-right: 0px;
+    border-right: 0px;
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+  }
+
+  button {
+    background-color: white !important;
+    color: black !important;
+    height: 34px !important;
+    border-radius: 0 !important;
+    margin-bottom: 6px;
+    border-left: 0px;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+  }
+}
+.header-right {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  font-family: emoji;
+  margin-left: 30px;
+}
+
+.header-right:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.microphone {
+  margin-left: 10px;
+  width: 5%;
+  background-color: none !important;
+  border: none!important;
+  cursor: pointer;
+}
+
+.search-voice{
+  color: white;
+}
+
+.dropbtn {
+  background-color: black;
+  color: white;
+  font-family: emoji;
+  padding: 16px;
+  font-size: 23px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  color: white;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+  font-family: emoji;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+
+.name-web {
+  color: white;
+  font-size: 24px;
+  margin: auto;
+  font-family: emoji;
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f093fb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
+  }
+  
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+  top: 13px;
+  }
+
+.bg-image-vertical {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+  }
+  
+  @media (min-width: 1025px) {
+  .h-custom-2 {
+  height: 100%;
+  }
+  }
+
+  .login-page {
+    margin-top: 70px;
+  }
+
+.user {
+  height: 100%;
+  width: 50px;
+  background-color: black;
+  display: block;
+}
+
+.icon-user {
+  color: white;
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.name-web:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-wed {
+  float: left;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.navbar-nav {
+  margin-left: 68% !important;
+}
+
+.dropdown-menu {
+  background-color: black !important;
+}
+
+
+.dropdown-menu a {
+  color: white!important;
+}
+
+.dropdown-menu a:hover {
+  background-color: #a6a6a6 !important; ;
+}
+
+.title {
+  margin-top: 50px !important;
+  padding: 0;
+}
+
+.logo {
+  max-width: 65%;
+  filter: none !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.item {
+  margin-top: 10px;
+  font-size: 40px;
+  color: #ffff;
+  text-align: center;
+  min-height: 380px;
+  line-height: 250px;
+  background-color: orange;
+}
+
+.mona_title {
+  color: #3c3451;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  clear: both;
+  font-family: 'Roboto Slab', serif;
+  margin-top: 20px;
+}
+
+img {
+  height: 70%;
+  width: 100%;
+}
+
+p {
+  font-size: 10px;
+  margin-top: 0;
+}
+
+/* ==========================================
+    CUSTOM UTILS CLASSES
+  ========================================== */
+  body, html {
+    height: 100%;
+  }
+
+  .Container {
+    margin-left: 5%;
+    margin-bottom: 100px;
+    width: 90%;
+  }
+
+.navbar {
+    height: 100px;
+    font-size: 25px;
+    // background-image: url(https://i.pinimg.com/736x/19/6a/87/196a876bd94c90b38b2fae20602449eb.jpg);
+    background-color: black;
+    color: white !important;
+    margin-bottom: 0px !important;
+    border-radius: 0px !important;
+}
+
+
+p {
+    font-size: 15px;
+}
+
+.Container {
+  width: 90%;
+}
+
+.carousel-item {
+  height: 65vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.card-item {
+    height: 100%;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #334862;
+}
+
+.total {
+    text-align: center;
+    color: #334862;
+    font-weight: bold;
+}
+
+.break-word { word-wrap: break-word;}
+
+.img_content {
+    height: 250px;
+}
+
+.capture2 {
+    height: 300px;
+}
+
+.cart {
+  background-color: red;
+  height: 500px;
+  width: 90%;
+  margin-top: 30px;
+  margin-left: 5%;
+}
+
+.cart .img-cart {
+  background-color: #01e37f;
+  width: 100%;
+  height: 60px;
+  float: left;
+}
+
+.cart .name-cart {
+  background-color: #3c3451;
+  width: 100%;
+  height: 60px;
+  float: left;
+}
+
+.comment {
+  margin-bottom: 20px;
+  width: 100%;
+
+  .cmt-content {
+    width: 90%;
+    height: 100px;
+    margin-left: 3%;
+    border-radius: 10px;
+  }
+
+  .btn-cmt {
+    margin-top: 10px;
+    width: 15%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    margin-left: 78%;
+  }
+}
+
+.quantity {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nameCmt {
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.cotentCmt {
+  padding-left: 20px;
+  width: 80%;
+}
+
+.cart .number-cart {
+  background-color: #9be010;
+  width: 100%;
+  height: 60px;
+  float: left;
+}
+
+.cart .total-cart {
+  background-color: #f093fb;
+  width: 100%;
+  height: 60px;
+  float: left;
+}
+
+.cart .delete-cart{
+  background-color: #ff3f40;
+  width: 100%;
+  height: 60px;
+  float: left;
+}
+
+.image-cart{
+  border-radius: 50px;
+}
+
+footer {
+    background-color: black;
+    height: 160px;
+    font-size: 17px;
+}
+
+footer .row {
+    width: 100%;
+    height: 100px;
+}
+footer i {
+    color: white;
+
+}
+
+
+
+/* ----- Variables ----- */
+$color-primary: #4c4c4c;
+$color-secondary: #a6a6a6;
+$color-highlight: #ff3f40;
+
+/* ----- Global ----- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr;
+  font-family: "Raleway", sans-serif;
+  background-color: #01e37f;
+}
+
+h3 {
+  font-size: 0.7em;
+  letter-spacing: 1.2px;
+  color: $color-secondary;
+}
+
+img {
+      max-width: 100%;
+      filter: drop-shadow(1px 1px 3px $color-secondary);
+    }
+
+/* ----- Product Section ----- */
+.product {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  margin: auto;
+  padding: 2.5em 0;
+  min-width: 600px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* ----- Photo Section ----- */
+.product__photo {
+  position: relative;
+}
+
+.photo-container {
+  position: absolute;
+  left: -2.5em;
+  display: grid;
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.3);
+}
+
+.photo-main {
+  border-radius: 6px 6px 0 0;
+  background-color: #9be010;
+  background: radial-gradient(#e5f89e, #96e001);
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8em;
+    color: #fff;
+
+    i {
+      cursor: pointer;
+    }
+  }
+}
+
+.photo-album {
+  padding: 0.7em 1em;
+  border-radius: 0 0 6px 6px;
+  background-color: #fff;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  li {
+    float: left;
+    width: 55px;
+    height: 55px;
+    padding: 7px;
+    border: 1px solid $color-secondary;
+    border-radius: 3px;
+  }
+}
+
+/* ----- Informations Section ----- */
+.product__info {
+  padding: 0.8em 0;
+}
+
+.title {
+  h1 {
+    margin-bottom: 0.1em;
+    color: $color-primary;
+    font-size: 1.5em;
+    font-weight: 900;
+  }
+
+  span {
+    font-size: 0.7em;
+    color: $color-secondary;
+  }
+}
+
+.price {
+  margin: 1.5em 0;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+
+  span {
+    padding-left: 0.15em;
+    font-size: 2em;
+  }
+}
+
+.intro {
+  font-size: 1.5em;
+  
+}
+
+.detaile-container {
+  width: 100% !important;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 1.5em;
+  border-color: white;
+  border-radius: 10px;
+  border-spacing: 5;
+  margin-top: 50px;
+
+  tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+  }
+
+  th {
+    text-align: left;
+    padding-left: 70px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    color: black;
+    border-bottom: 1px solid #ececec;
+    line-height: 1.3;
+    font-size: 1em;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  td {
+    color: #666;
+    padding: 0.5em;
+    text-align: left;
+    border-bottom: 1px solid #ececec;
+    line-height: 1.3;
+    font-size: .9em;
+  }
+}
+
+.order-cancel {
+  color: red;
+  font-style: italic !important;
+}
+
+.order-wait {
+  font-style: italic !important;
+  color: black;
+}
+
+
+.action {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.variant {
+  overflow: auto;
+
+  h3 {
+    margin-bottom: 1.1em;
+  }
+
+  li {
+    float: left;
+    width: 35px;
+    height: 35px;
+    padding: 3px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:first-child,
+    &:hover {
+      border: 1px solid $color-secondary;
+    }
+  }
+
+  li:not(:first-child) {
+    margin-left: 0.1em;
+  }
+}
+
+.description {
+  clear: left;
+  margin: 2em 0;
+
+  h3 {
+    margin-bottom: 1em;
+  }
+
+  ul {
+    font-size: 0.8em;
+    list-style: disc;
+    margin-left: 1em;
+  }
+
+  li {
+    text-indent: -0.6em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.buy--btn {
+  padding: 1.5em 3.1em;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  color: #fff;
+  background-color: $color-highlight;
+  box-shadow: 2px 2px 25px -7px $color-primary;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.btn {
+  background-color: black !important;
+  color: white !important;
+  height: 40px !important;
+  
+}
+
+.btn:hover {
+  background-color: grey!important;
+}
+
+.stars {
+  color: yellow;
+}
+
+#form-creat {
+  width: 100% !important;
+  // margin-left: 10% !important;
+  background-image: url(https://wallup.net/wp-content/uploads/2018/03/17/540980-Bert_Seinstra-dark-clocks-monochrome.jpg);
+  color: white;
+}
+
+.form-creat {
+  width: 60%!important;
+  margin-left: 20%;
+}
+
+form .bord {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  border-bottom: 1px solid gray;
+}
+
+.creat-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  margin-top: 40px;
+}
+
+.btn-creat {
+  background: none !important;
+  width: 200px !important;
+  margin-left: 33%;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  border: 1px solid white !important;
+}
+
+.login {
+  background-image: url(https://wallup.net/wp-content/uploads/2018/03/17/540980-Bert_Seinstra-dark-clocks-monochrome.jpg);
+  width: 100%;
+  height: 100%;
+  margin-bottom: 80px;
+  color: white;
+
+  form {
+    width: 60%;
+    margin-left: 20%;
+  }
+}
+
+.login-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 30px;
+  color: white;
+}
+
+.update {
+  width: 90% !important;
+  height: 300px !important;
+  margin-left: 5%;
+  margin-bottom: 50px !important;
+  background-image: url(https://wallup.net/wp-content/uploads/2018/03/17/540980-Bert_Seinstra-dark-clocks-monochrome.jpg);
+}
+
+.update-form {
+  background-color: black !important;
+
+  table, th{
+    text-align: center !important;
+  }
+  
+  table, th, td {
+    border: 1px solid white !important;
+    color: white !important;
+  }
+}
+
+.creat-add {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  margin-left: 5%;
+  border: 1px solid white !important;
+}
+
+.title-update {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 40px;
+}
+
+.payment {
+  margin-bottom: 50px;
+}
+
+// .shopping-cart {
+//   height: 500px;
+//   width: 90%;
+//   margin-left: 5%;
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+// }
+
+// .shopping-cart .column-labels{
+//   text-align: center;
+//   height: 100px;
+// }
+
+// .shopping-cart .product{
+//   height: 200px;
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+// }
+
+table {
+  width: 100%;
+  margin-bottom: 20px;
+
+
+  th{
+    text-align: center;
+    padding: 0;
+    height: 20px;
+  }
+  
+  .cart-product{
+    margin-top: 20px;
+
+    .cart-img{
+      width: 18%;
+      img{
+        height: 100px;
+        width: 100px;
+        margin-left: 70px;
+        border-radius: 50px;
+      }
+    }
+    .cart-detail{
+      width: 30%;
+    }
+    .cart-price{
+      width: 13%;
+      text-align: center;
+    }
+    .cart-number{
+      width: 13%;
+      input{
+        width: 70px;
+        margin-left: 30%;
+      }
+    }
+    .cart-rm{
+      width: 13%;
+      button{
+        width: 70px;
+        margin-left: 30%;
+      }
+    }
+    .cart-total{
+      width: 13%;
+      text-align: center;
+    }
+  }
+
+  .total-price{
+    td{
+      padding-top: 50px;
+      padding-left: 30px;
+    }
+  }
+}
+
+.cart-shopping{
+  width: 100px;
+  height: 50px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+
+.filter{
+  width: 100%;
+  background-color: #DDDDDD;
+  height: 50px;
+
+  form {
+    padding-top: 8px;
+    padding-left: 10px;
+  }
+
+  .btn-block {
+    width: 50px !important;
+    border: 1px solid;
+    float: right;
+    margin-right: 470px;
+    margin-top: 5px;
+  }
+}
+
+#cars {
+  height: 25px;
+  margin-left: 10px;
+}
+.sm-filter {
+  margin-left: 5px;
+}
+.brand-fliter {
+  margin-left: 15px;
+  padding-top: 5px;
+}
+
+.card-img-top {
+  border-radius: 5px !important;
+}
+
+.order-title {
+  font-size: 15px;
+  color: black;
+}
+.tbl-order {
+  width: 90% !important;
+  margin-left: 5% !important;
+  height: 300px !important;
+  
+  .order-stt{
+    width: 10%;
+  }
+
+  .order-name {
+    width: 30%;
+  }
+
+  .order-number {
+    width: 15%;
+  }
+
+  .order-total {
+    width: 15%;
+  }
+
+  .order-status {
+    width: 15%;
+  }
+  td {
+    text-align: center;
+    padding: auto;
+  }
+
+  .order-confirm {
+    font-style: italic !important;
+    color: #6699FF;
+  }
+}
+
+.user {
+  background-color: white;
+
+  .form-user {
+    margin-left: 10%;
+  }
+
+  h3 {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .title-user {
+    text-align: center !important;
+    margin-top: -20px;
+    margin-bottom: 30px;
+  }
+
+  .change-pass {
+    margin-top: 30px;
+    font-style: italic;
+  }
+}
+
+.change-password {
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 100px;
+  
+  p {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 25px;
+  }
+
+  .form-check-label {
+    margin-left: 25px;
+  }
+}
+
+.bg-color {
+  background-color: white !important;
+}
+
+.card {
+  margin-left: 20px;
+}
+
+.reg-title {
+  text-align: center;
+}
+
+
+

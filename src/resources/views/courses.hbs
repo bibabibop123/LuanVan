@@ -1,0 +1,52 @@
+<div class="Container">
+    <h2 class="title text-left mona_title">ĐỒNG HỒ NAM <hr></h2>
+	<div class="filter">
+		<form action="/courses" method="get">
+  			<label for="cars">Tìm kiếm theo: </label>
+			<div class="form-check form-check-inline brand-fliter">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="casio" name="brand">
+				<label class="form-check-label" for="inlineCheckbox1">CASIO</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="citizen" name="brand">
+				<label class="form-check-label" for="inlineCheckbox2">CITIZEN</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tissot" name="brand">
+				<label class="form-check-label" for="inlineCheckbox2">TISSOT</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="olym" name="brand">
+				<label class="form-check-label" for="inlineCheckbox2">OLYM PINUS</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="hublot" name="brand">
+				<label class="form-check-label" for="inlineCheckbox2">HUBLOT</label>
+			</div>
+			<select id="cars" name="price">
+    			<option value="asc">Thấp đến cao</option>
+    			<option value="des">Cao đến thấp</option>
+  			</select>
+			<button class="btn-block" type="submit">tìm</button>
+		</form>
+	</div>
+	<div class="mt-4 ">
+		<div class="row">
+			{{#each male}}
+			<div class="col-3 mt-4 mb-4 height">
+				<div class="card card-item border border-white border-0">
+					<a href="/courses/{{this.name_content}}">
+						<img class="card-img-top" src="{{this.img}}" alt="Card image cap">
+					</a>
+					<div class="card-body">
+						<a href="/detail/{{this.name_content}}" class="text-dark">
+							<h5 class="card-title break-word text-center">{{this.name_content}}</h5>
+							<p class="card-text text-center">{{this.total}}$</p>
+						</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

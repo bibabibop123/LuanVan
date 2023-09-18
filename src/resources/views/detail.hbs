@@ -1,0 +1,67 @@
+<div class="container mt-4">
+    <div class="card mb-4 detaile-container">
+        <div class="container-fliud">
+            <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post" action="">
+                <div class="wrapper row">
+                    <div class="preview col-6">
+                        <ul class="preview-thumbnail nav nav-tabs">
+                            <img class="detail-img" src="{{courses.img}}" alt="">
+                        </ul>
+                    </div>
+                    <div class="details col-6">
+                        <h3 class="product-title">{{courses.name_content}}</h3>
+                        <div class="rating">
+                            <div class="stars">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <span class="review-no font-weight-bold">999 reviews</span>
+                        </div>
+                        <h4 class="price">Giá hiện tại: <span>{{courses.total}}</span></h4>
+                        <span class="quantity">Số lượng còn: {{courses.quantity}}</span>
+                        <p></p>
+                        <p class="vote"><strong>100%</strong> hàng <strong>Chất lượng</strong>, đảm bảo
+                            <strong>Uy
+                                tín</strong>!</p>
+
+                        <span class="intro">
+                            {{courses.detail}}
+                        </span>
+
+                        <div class="action">
+                            <a class="add-to-cart btn" id="btnThemVaoGioHang" href="/cart/add-cart/{{courses._id}}">Thêm vào giỏ hàng</a>
+                            <a class="like btn" href="#"><span><i class="fa-regular fa-heart"></i></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card mt-4 comment">
+        <table class="detail-table">
+            <p class="text-dark font-weight-bold h4 py-3 px-5">Bình Luận</p>
+            <form action="/detail/comment/{{courses._id}}" method="post">
+            {{!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
+                <textarea class="cmt-content" name="comment" placeholder="Nhập bình luận....."></textarea>
+                <button type="submit" class="btn-cmt">Gửi bình luận</button>
+                <hr width="90%" class="px-3">
+                
+            </form>
+            {{#each comments}}
+                    <p class="nameCmt">{{this.username}}</p>
+                    <span class="cotentCmt">{{this.content}}</span>
+                    <hr width="90%" class="px-3">
+                    {{#if user}}
+                        <p>chỉnh sửa</p>
+                    {{/if}}
+            {{/each}}
+        </table>
+    </div>
+</div>
+
+

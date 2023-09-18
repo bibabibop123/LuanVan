@@ -1,0 +1,105 @@
+	<div id="demo" class="carousel slide" data-ride="carousel">
+
+	<!-- Indicators -->
+	<ul class="carousel-indicators">
+		<li data-target="#demo" data-slide-to="0" class="active"></li>
+		<li data-target="#demo" data-slide-to="1"></li>
+		<li data-target="#demo" data-slide-to="2"></li>
+	</ul>
+
+	<!-- The slideshow -->
+	<div class="carousel-inner l-12 m-12 c-12">
+		<div class="carousel-item active">
+			<img src="/img/img-banner/slide1.jpg" alt="Los Angeles" width="1100" height="500">
+		</div>
+
+		<div class="carousel-item">
+			<img src="/img/img-banner/slide2.jpg" alt="Chicago" width="1100" height="500">
+		</div>
+
+		<div class="carousel-item">
+			<img src="/img/img-banner/slide3.jpg" alt="New York" width="1100" height="500">
+		</div>
+	</div>
+</div>
+
+<div class="Container s-spy="scroll" data-bs-offset="0" class="scrollspy-example" tabindex="0"">
+	<a href="/courses/">
+		<h2 class="mt-4 mb-0 text-center mona_title">ĐỒNG HỒ NAM</h2>
+	</a>
+	
+	<div class="mt-4">
+		<div class="row">
+			{{#each male}}
+			<div class="col-3 mt-4 mb-4 height">
+				<div class="card card-item border border-white border-0">
+					<a href="/detail/{{this.name_content}}">
+						<img class="card-img-top" src="{{this.img}}" alt="Card image cap">
+					</a>
+					<div class="card-body">
+						<a href="/detail/{{this.name_content}}" class="">
+							<p class="card-title break-word text-center">{{this.name_content}}</p>
+							<p class="card-text total">{{this.total}}$</p>
+						</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+
+<img src="/img/img-banner/Capture.JPG" class="mb-4 img_content" alt="">
+
+<div class="Container mt-4">
+	<a href="/female/">
+		<h2 class="mt-4 mb-0 text-center mona_title">ĐỒNG HỒ NỮ</h2>
+	</a>
+	<div class="mt-4">
+		<div class="row">
+			{{#each femaleList}}
+			<div class="col-3 mt-4 mb-4 height">
+				<div class="card card-item border border-white border-0">
+					<a href="/detail/{{this.name_content}}">
+						<img class="card-img-top" src="{{this.img}}" alt="Card image cap">
+					</a>
+					<div class="card-body">
+						<a href="/detail/{{this.name_content}}" class="text-dark">
+							<h5 class="card-title break-word text-center">{{this.name_content}}</h5>
+							<p class="card-text text-center">{{this.total}}$</p>
+						</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+
+<img src="/img/img-banner/Capture2.JPG" class="mb-4 capture2" alt="">
+
+
+<div class="Container">
+	<a href="/couple/">
+		<h2 class="mt-4 mb-0 text-center mona_title">ĐỒNG HỒ ĐÔI</h2>
+	</a>
+	<div class="mt-4 ">
+		<div class="row">
+			{{#each couplelist}}
+			<div class="col-3 mt-4 mb-4 height">
+				<div class="card card-item border border-white border-0">
+					<a href="/detail/{{this.name_content}}">
+						<img class="card-img-top" src="{{this.img}}" alt="Card image cap">
+					</a>
+					<div class="card-body">
+						<a href="/detail/{{this.name_content}}" class="text-dark">
+							<h5 class="card-title break-word text-center">{{this.name_content}}</h5>
+							<p class="card-text text-center">{{this.total}}$</p>
+						</a>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

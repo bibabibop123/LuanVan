@@ -1,0 +1,29 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <p class="title-order">Đơn hàng chờ xác nhận</p>
+    <table class="tbl-order table table-striped">
+        <thead>
+            <tr>
+            <th class="order-stt">Stt</th>
+            <th class="order-name">Tên người đặt</th>
+            <th class="order-number">Số điện thoại</th>
+            <th class="order-total">Trạng Thái</th>
+            <th class="order-total">Tổng tiền</th>
+            <th class="order-status">Chi tiết đơn hàng</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each orders}}
+                <tr class="product">
+                    <td>1</td>
+                    <td class="product-name">{{this.name}}</td>
+                    <td class="product-name">{{this.total}}</td>
+                    <td class="product-name">{{paymentStatusConverString this.status}}</td>
+                    <td>{{this.total}}</td>
+                <td>
+                    <a href="/admin/detail-order/{{this._id}}" class="detai-order-status">Chi tiết</a>
+                </td>
+                </tr>
+              {{/each}}
+        </tbody>
+    </table>
+</div>

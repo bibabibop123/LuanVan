@@ -1,0 +1,60 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <p class="title-create">Sửa sản phẩm</p>
+    <form class="create-form" method="post" action="/admin/{{courses._id}}">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form6Example1">Tên sản phẩm</label>
+        <input type="text" id="form6Example1" class="form-control" value="{{courses.name_content}}" name="name_content"/>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form6Example2">Giá tiền</label>
+        <input type="text" id="form6Example2" class="form-control" value="{{courses.total}}" name="total"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form6Example3">link ảnh sản phẩm</label>
+    <input type="text" id="form6Example3" class="form-control" value="{{courses.img}}" name="img"/>
+  </div>
+
+    <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form6Example1">Loại sản phẩm:</label>
+        <select class="select-create" name="type">
+            <option value="male" {{#if (equal courses.type "male")}} selected {{/if}}>male</option>
+            <option value="female" {{#if (equal courses.type "female")}} selected {{/if}}>female</option>
+            <option value="couple" {{#if (equal courses.type "couple")}} selected {{/if}}>couple</option>
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form6Example2">Thương hiệu: </label>
+        <select class="select-create" name="brand">
+            <option value="olym" {{#if (equal courses.brand "olym")}} selected {{/if}}>olym</option>
+            <option value="casio" {{#if (equal courses.brand "casio")}} selected {{/if}}>casio</option>
+            <option value="citizen" {{#if (equal courses.brand "citizen")}} selected {{/if}}>citizen</option>
+            <option value="tissot" {{#if (equal courses.brand "tissot")}} selected {{/if}}>tissot</option>
+            <option value="hublot" {{#if (equal courses.brand "hublot")}} selected {{/if}}>hublot</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form6Example7">Chi tiết mô tả sản phẩm</label>
+    <textarea class="form-control" id="form6Example7" rows="4" value="" name="detail">{{courses.detail}}</textarea>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn-create btn btn-primary btn-block mb-4">Sửa sản phẩm</button>
+</form>
+</div>

@@ -1,0 +1,59 @@
+
+<nav class="navbar navbar-expand-lg">
+  <div class="col-2">
+    <a href="/" class="name-web">LUXUBU</a>
+  </div>
+
+  <div class="col-6">
+    <div class="input-group">
+      <form action="/search" method="get" id="search">
+        <input id="search-input" type="text" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="keyword"/>
+        <button type="submit" class="btn btn-outline-primary sm-search">Tìm</button>
+        <span class="microphone"><i class="fa-solid fa-microphone voice-search"></i></span>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-4" id="navbarSupportedContent">
+    <div class="navbar">
+        <a href="#home" class="header-right">Giới Thiệu</a>
+        <a href="#news" class="header-right">Liên Hệ</a>
+      <div class="dropdown">
+        <button class="dropbtn">Menu 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          {{#unless user}}
+            <a class="dropdown-item" href="/login/">Đăng Nhập</a>
+            <div class="dropdown-divider"></div>
+          {{/unless}}
+          {{#if user}}
+            <a class="dropdown-item" href="/user/">Hello : {{user.lastName}}</a>
+            <div class="dropdown-divider"></div>
+          {{/if}}
+          <a class="dropdown-item" href="/courses/">Đồng Hồ Nam</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/female/">Đồng Hồ Nữ</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/couple/">Đồng Hồ Đôi</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Phụ Kiện</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/cart/">Giỏ Hàng</a>
+          <div class="dropdown-divider"></div>
+          {{#if user}}
+             <a class="dropdown-item" href="/order/">Đơn hàng</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/logout/">Đăng Xuất</a>
+            <div class="dropdown-divider"></div>
+          {{/if}}
+        </div>
+      </div> 
+    </div>
+
+  </div>
+</nav>
+
+      
+
+  

@@ -1,0 +1,20 @@
+const express = require('express');
+const router = express.Router();
+const loginRouter = require('./login');
+const homeRouter = require('./home');
+const orderRouter = require('./order');
+const orderConfirmRouter = require('./order-confirm');
+const orderCancelRouter = require('./order-cancel');
+const createAdminRouter = require('./create-admin');
+const updateAdminRouter = require('./update-admin');
+const detailorderAdminRouter = require('./detail-order');
+
+router.use('/login',loginRouter);
+router.use('/order',orderRouter);
+router.use('/order-confirm',orderConfirmRouter);
+router.use('/order-cancel',orderCancelRouter);
+router.use('/create-admin',createAdminRouter);
+router.use('/update-admin',updateAdminRouter);
+router.use('/detail-order',detailorderAdminRouter);
+router.use('/',homeRouter);
+module.exports = router;
