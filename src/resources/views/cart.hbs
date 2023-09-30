@@ -81,9 +81,8 @@
       <td class="cart-number">
         <div style="display: flex;justify-content: center;">
           <form action="/cart/decrement/{{this.id}}" method="post"><input type="submit"  value="-" style="max-width: 30px;"/></form>
-          <input type="number" value="{{this.quality}}"  style="max-width: 30px; margin-left: 10%" readonly="true">
+          <input type="number" value="{{this.quality}}" id="cartInput"  style="max-width: 40px; margin-left: 10%" readonly="true">
           <form action="/cart/increment/{{this.id}}" method="post"><input type="submit"  value="+"  style="max-width: 30px;"/></form>
-
         </div>
       </td>
       <td class="cart-rm">

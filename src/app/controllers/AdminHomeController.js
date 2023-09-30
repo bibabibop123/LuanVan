@@ -1,13 +1,3 @@
-// const Course = require('../models/Course');
-
-// class AdminHomeController {
-//     async home ( req, res, next) {
-//         const  courses = await Course.find({}).lean();
-//         // console.log(courses)
-//         return res.render('home', {courses :courses})
-//     }
-// }
-
 const Course = require('../models/Course');
 
 class AdminHomeController {

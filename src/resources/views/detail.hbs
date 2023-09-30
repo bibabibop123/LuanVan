@@ -18,7 +18,7 @@
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
                             </div>
-                            <span class="review-no font-weight-bold">999 reviews</span>
+                            <span class="review-no font-weight-bold"> {{courses.likeNumber}} lượt thích</span>
                         </div>
                         <h4 class="price">Giá hiện tại: <span>{{courses.total}}</span></h4>
                         <span class="quantity">Số lượng còn: {{courses.quantity}}</span>
@@ -33,7 +33,11 @@
 
                         <div class="action">
                             <a class="add-to-cart btn" id="btnThemVaoGioHang" href="/cart/add-cart/{{courses._id}}">Thêm vào giỏ hàng</a>
-                            <a class="like btn" href="#"><span><i class="fa-regular fa-heart"></i></span></a>
+                            {{!-- <a class="like btn" id="btnLike" href="/detail/like/{{courses._id}}"><span><i class="fa-regular fa-heart"></i></span></a> --}}
+                            {{!-- <form action="/detail/like/{{courses._id}}" method="post">
+                                <button type="submit" class="like btn"><i class="fa-regular fa-heart"></i></button>
+                            </form> --}}
+                            <a class="add-to-cart btn" id="btnThemVaoGioHang" href="/detail/like/{{courses._id}}"><i class="fa-regular fa-thumbs-up"></i></a>
                         </div>
                     </div>
 
@@ -56,9 +60,9 @@
                     <p class="nameCmt">{{this.username}}</p>
                     <span class="cotentCmt">{{this.content}}</span>
                     <hr width="90%" class="px-3">
-                    {{#if user}}
+                    {{!-- {{#if user}}
                         <p>chỉnh sửa</p>
-                    {{/if}}
+                    {{/if}} --}}
             {{/each}}
         </table>
     </div>

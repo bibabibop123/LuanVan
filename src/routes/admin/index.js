@@ -8,9 +8,11 @@ const orderCancelRouter = require('./order-cancel');
 const createAdminRouter = require('./create-admin');
 const updateAdminRouter = require('./update-admin');
 const detailorderAdminRouter = require('./detail-order');
+const categoryRouter = require('./category');
 
 router.use('/login',loginRouter);
 router.use('/order',orderRouter);
+router.use('/category-admin', categoryRouter);
 router.use('/order-confirm',orderConfirmRouter);
 router.use('/order-cancel',orderCancelRouter);
 router.use('/create-admin',createAdminRouter);

@@ -22,7 +22,9 @@ class PaymentController {
         
         return res.render('payment',{cart:cart,total:total});
     }
-
+    async handlerUpdateProduct(productId,amount){
+        return Course.findByIdAndUpdate(productId,{$inc:{quantity:amount}});
+    } 
     async paymentConfirm(req,res){
         if(!req.user){
             req.flash('message', 'Vui lòng đăng nhập để tiến hành thanh toán !!!');
@@ -30,6 +32,7 @@ class PaymentController {
         }
         // console.log('req.body',req.body);
         const cart = req.session.cart || [];
+        // console.log('req.session.cart',req.session.cart);
         if(cart.length ==0){
             req.flash('message', 'Giỏ hàng trống vui lòng thêm sản phẩm !!!');
             return res.redirect('/');
@@ -38,7 +41,12 @@ class PaymentController {
         cart.forEach(element => {
             total += element.price * element.quality;
         });
+        
         const order = await OrderModel.create({...req.body,total,products:cart,user:req.user._id});
+        const products = await Promise.all(req.session.cart.map((item)=>{
+            return Course.findByIdAndUpdate(item.id,{$inc:{quantity:-item.quality}})
+        }))
+        console.log('products',products);
         // console.log('order',order);
         req.session.cart = [];
         if(order.paymentMethod == PaymentMethod.atm){
@@ -49,9 +57,12 @@ class PaymentController {
         // console.log(Course.quantity);
         return res.redirect('/');
     }
+    
 
     async confirmPayment(req,res){
         const id = req.params.id;
+    // console.log('req.session.cart',req.session.cart);
+    // console.log(Course.quantity);
         if(!id){
             req.flash('message', 'Lỗi.... !!!');
             return res.redirect('/');

@@ -757,3 +757,9 @@ table {
 
 .reg-title {
   text-align: center; }
+
+.tbl-category {
+  width: 80% !important;
+  margin-left: 10% !important; }
+  .tbl-category .th {
+    width: 30% !important; }

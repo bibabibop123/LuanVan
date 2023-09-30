@@ -6,6 +6,7 @@ const session = require("express-session");
 const flash = require('connect-flash');
 const path = require("path");
 const Course = require("./app/models/Course");
+const Category = require("./app/models/category");
 const { paymentStatusConverString } = require("./config/enum.config");
 const app = express();
 const port = 3000;
@@ -80,10 +81,14 @@ app.use((req,res,next)=>{
 route(app);
 
 app.get("/", async (req, res, next) => {
-  const array_male = await Course.find({ category_name: "male" }).limit(8).lean();
-  const array_female = await Course.find({ category_name: "female" }).limit(8).lean();
-  const array_couple = await Course.find({ category_name: "couple" }).limit(4).lean();
-  console.log('res.locals',res.locals.user);
+  const maleCategory = await Category.findOne({ category_name: "male" })
+  const femaleCategory = await Category.findOne({ category_name: "female" })
+  const coupleCategory = await Category.findOne({ category_name: "couple" })
+  const array_male = await Course.find({categoryId: maleCategory._id}).limit(8).populate('categoryId').lean();
+  const array_female = await Course.find({categoryId: femaleCategory._id}).limit(8).populate('categoryId').lean();
+  const array_couple = await Course.find({categoryId:coupleCategory._id}).limit(4).populate('categoryId').lean();
+  // console.log('res.locals',array_couple);
+
   return res.render("home", {
     male: array_male,
     femaleList: array_female,

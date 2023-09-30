@@ -5,10 +5,12 @@ const Course = new Schema({
     name_content: { type: String},
     total: { type: String},
     img: { type: String},
-    category_name: { type: String},
     brand: {type: String},
-    quantity: {type: String},
+    quantity: {type: Number},
     detail: { type: String},
+    categoryId: {type: Schema.Types.ObjectId, ref: 'category'},
+    likeNumber: {type: Number,default:0},
+    dislikeNumber: {type: Number,default:0},
   }, {
     timestamps: true,
   });

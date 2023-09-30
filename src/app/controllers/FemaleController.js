@@ -1,4 +1,5 @@
 const Course = require('../models/Course');
+const Category = require('../models/category');
 
 class FemaleController {
     async female ( req, res, next) {
@@ -15,7 +16,9 @@ class FemaleController {
         if(brand && brand.length >0){
             query['brand']=brand;
         }
-        const array_female = await Course.find(query).sort(sort).limit(40).lean();
+
+        const femaleCategory = await Category.findOne({ category_name: "female" })
+        const array_female = await Course.find({categoryId: femaleCategory._id}).limit(50).populate('categoryId').lean();
         // console.log('array_female',array_female.length)
         return res.render('female', {femaleList:array_female});
     }

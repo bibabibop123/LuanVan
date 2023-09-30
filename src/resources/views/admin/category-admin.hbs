@@ -1,0 +1,21 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+  <p class="title-create">Danh mục sản phẩm</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th >STT</th>
+        <th class="text-center">Tên Danh Mục</th>
+        <th class="text-center">Số Lượng</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each categorys}}
+        <tr>
+          <th scope="row">{{@index}}</th>
+          <td>{{this.category_name}}</td>
+          <td>{{this.category_quantity}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
