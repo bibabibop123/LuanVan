@@ -7,7 +7,7 @@ class LoginController {
         const {email,password} = req.body;
         const userExist = await UserModel.findOne({email});
         if(!userExist){
-            req.flash('message', 'Tên người dùng không tồn tại !!!');
+            req.flash('message', 'Sai tên đăng nhập hoặc mật khẩu !!!');
             return res.redirect('/login');
         }
         if(userExist.password != password){

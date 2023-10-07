@@ -65,9 +65,17 @@
                                 <input type="text" class="form-control" name="email" id="email"
                                     placeholder="example@ctu.edu.vn" value="{{order.paymentMethod}}">
                         </div>
+                        <div class="d-block my-3">
+                            <label for="kh_email">Nhân viên giao hàng</label>
+                            <select class="select-create" name="type">
+                                {{#each staffShip}}
+                                    <option>{{this.staffShipName}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
                         <hr class="mb-4">
                     {{#if (different order.status 'xac_nhan')}}
-                         <a href="/admin/detail-order/confirm/{{order._id}}"><button class="btn btn-primary">xác nhận đơn hàng</button></a>
+                         <a href="/admin/detail-order/confirm/{{order._id}}"><button class="btn btn-primary">xác nhận</button></a>
                     {{/if}}
                     {{#if (different order.status 'da_huy')}}
                          <a href="/admin/detail-order/cancel/{{order._id}}"><button class="btn btn-danger">Hủy</button></a>
@@ -87,4 +95,4 @@
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Custom script - Các file js do mình tự viết -->
-    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/app.js"></script> 

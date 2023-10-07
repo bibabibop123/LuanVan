@@ -2,7 +2,7 @@ const userModel = require('../models/user');
 
 class RegisterController {
     async register ( req, res, next) {
-        console.log(res.locals.message);
+        // console.log(res.locals.message);
         res.render('register');
     }
 

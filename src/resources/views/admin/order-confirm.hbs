@@ -1,5 +1,5 @@
 <div class="wrapper d-flex flex-column min-vh-100 bg-light">
-    <p class="title-order">Đơn hàng chờ xác nhận</p>
+    <p class="title-order">Đơn hàng đã xác nhận</p>
     <table class="tbl-order table table-striped">
         <thead>
             <tr>
@@ -17,9 +17,9 @@
                 <td>{{this.name}}</td>
                 <td>{{this.products.length}}</td>
                 <td>{{this.total}}</td>
-                <td class="order-confirm">
-                        Đã xác nhận
-                    </td>
+                <td>
+                    <a href="/admin/detail-comfirm/{{this._id}}" class="detai-order-status">Chi tiết</a>
+                </td>
             </tr>
             {{/each}}
         </tbody>

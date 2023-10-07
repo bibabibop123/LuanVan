@@ -1,4 +1,4 @@
-<table class="tbl-order table table-striped">
+{{!-- <table class="tbl-order table table-striped">
   <thead>
     <tr>
       <th class="order-stt">Stt</th>
@@ -8,8 +8,8 @@
       <th class="order-status">Trạng thái</th>
     </tr>
   </thead>
-  <tbody>
-    {{#each orders}}
+  <tbody> --}}
+    {{!-- {{#each orders}}
     <tr>
       <th scope="row">{{@index}}</th>
       <td>{{this.products.[0].name}}</td>
@@ -19,12 +19,12 @@
         <td class="order-wait">
             Chờ xác nhận
         </td>
-      {{/if}}
+      {{/if}} --}}
       {{!-- {{#if (equal this.status 'doi_thanh_toan')}}
         <td class="order-confirm">
             Đợi thanh toán
         </td>
-      {{/if}} --}}
+      {{/if}}
       {{#if (equal this.status 'xac_nhan')}}
         <td class="order-confirm">
             Đã xác nhận
@@ -34,9 +34,121 @@
         <td class="order-cancel">
             Đã hủy
         </td>
-      {{/if}}
+      {{/if}} --}}
       
-    {{/each}}
+    {{!-- {{/each}}
     </tr>
   </tbody>
-</table>
+</table> --}}
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<div class="order-tab">
+  <!-- Tab items -->
+  <div class="tabs">
+    <div class="tab-item active">
+      Chờ xác Nhận
+    </div>
+    <div class="tab-item">
+      Đã xác nhận
+    </div>
+    <div class="tab-item">
+      Đang vận chuyển
+    </div>
+    <div class="tab-item">
+      Hoàn thành
+    </div>
+    <div class="tab-item">
+      Đã hủy
+    </div>
+    <div class="line"></div>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane active">
+      {{!-- <img class="image-order" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ3tCzESwvgsWV4z1xQWWO2cCkYIsuS1PEJMppZo14lw&s">
+      <p>Angular is an application design framework and development platform</p>
+      <p>Angular</p>
+      <p>Angular is an application design</p>
+      <p>Angular is an application design</p> --}}
+      <table class="tbl-order table table-striped text-center">
+        <tbody>
+          {{#each orders}}
+          <tr>
+            <td>Tên người nhận</td>
+            <td>{{this.products.[0].name}}</td>
+            <td>{{this.products.[0].quality}}</td>
+            <td>{{this.total}}</td>
+            <td><a>chi tiết</a></td>
+          {{/each}}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane">
+      <table class="tbl-order table table-striped">
+        <tbody>
+          {{#each orders}}
+          <tr>
+            <td>Tên người nhận</td>
+            <td>{{this.products.[0].name}}</td>
+            <td>{{this.products.[0].quality}}</td>
+            <td>{{this.total}}</td>
+            <td>Đơn vị giao hàng</td>
+            <td><a>chi tiết</a></td>
+          {{/each}}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane">
+      <table class="tbl-order table table-striped">
+        <tbody>
+          {{#each orders}}
+          <tr>
+            <td>Tên người nhận</td>
+            <td>{{this.products.[0].name}}</td>
+            <td>{{this.products.[0].quality}}</td>
+            <td>{{this.total}}</td>
+            <td>Đơn vị giao hàng</td>
+            <td><a>chi tiết</a></td>
+          {{/each}}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane">
+      <table class="tbl-order table table-striped">
+        <tbody>
+          {{#each orders}}
+          <tr>
+            <td>Tên người nhận</td>
+            <td>{{this.products.[0].name}}</td>
+            <td>{{this.products.[0].quality}}</td>
+            <td>{{this.total}}</td>
+            <td>Đơn vị giao hàng</td>
+            <td><a>chi tiết</a></td>
+          {{/each}}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane">
+      <table class="tbl-order table table-striped">
+        <tbody>
+          {{#each orders}}
+          <tr>
+            <td>Tên người nhận</td>
+            <td>{{this.products.[0].name}}</td>
+            <td>{{this.products.[0].quality}}</td>
+            <td>{{this.total}}</td>
+            <td>Đơn vị giao hàng</td>
+            <td><a>chi tiết</a></td>
+          {{/each}}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,8 @@ const UserSchema = new Schema({
     email: { type: String,unique: true},
     phoneNumber: { type: String},
     address: { type: String},
+    verification: { type: String},
+    addressnew: { type: String},
   }, {
     timestamps: true,
   });

@@ -38,11 +38,14 @@ app.use(
 app.use(flash());
 app.use((req,res,next)=>{
   const message = req.flash('message');
+  const displayTime = 2000;
   if(message){
     res.locals.message= message
+    
   }
   next();
 })
+
 app.use(
   bodyParser.urlencoded({
     extended: true,

@@ -4,8 +4,9 @@ const Category = require('../models/category');
 class CoursesController {
     async male ( req, res, next) {
         const {brand,price} = req.query;
-        const query = {category_name:"male"};
-        
+       
+        const categoryData = await Category.findOne({category_name:'male'});
+        const query = {categoryId: categoryData._id};
         if(brand && brand.length >0){
             query['brand']=brand;
         }
@@ -18,8 +19,7 @@ class CoursesController {
             
         }
         // console.log('sort', sort);
-        const maleCategory = await Category.findOne({ category_name: "male" })
-        const array_male = await Course.find({categoryId: maleCategory._id}).sort(sort).limit(50).populate('categoryId').lean();
+        const array_male = await Course.find(query).sort(sort).limit(50).populate('categoryId').lean();
     // console.log('array_male',array_male);
         return res.render('courses', {male:array_male});
     }
@@ -38,18 +38,6 @@ class CoursesController {
             .catch (next)
     }
 
-    // async detailCourses(req, res, next){
-    //     const  courses = await Course.findById(req.params.id).lean();
-    //     // console.log(courses)
-    //     return res.render('edit', {courses :courses})
-    // }
-
-    // async deleteCourse(req, res, next){
-    //     console.log('req',req.body);
-    //     Course.deleteOne({_id: req.params.id})
-    //         .then (() => res.redirect('back'))
-    //         .catch (next)
-    // }
 }
 
 module.exports = new CoursesController;

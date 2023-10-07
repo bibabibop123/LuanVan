@@ -1,5 +1,5 @@
 <div class="wrapper d-flex flex-column min-vh-100 bg-light">
-    <p class="title-order">Đơn hàng đã hủy</p>
+    <p class="title-order">Đơn hàng đang được vận chuyển</p>
     <table class="tbl-order table table-striped">
         <thead>
             <tr>
@@ -18,7 +18,7 @@
                 <td>{{this.products.length}}</td>
                 <td>{{this.total}}</td>
                 <td>
-                    <a href="/admin/detail-cancel/{{this._id}}" class="detai-order-status">Chi tiết</a>
+                    <a href="/admin/detail-order/{{this._id}}" class="detai-order-status">Chi tiết</a>
                 </td>
             </tr>
             {{/each}}

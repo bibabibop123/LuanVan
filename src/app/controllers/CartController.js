@@ -11,6 +11,10 @@ class CartController {
         res.render('cart',{cart:cart,total:total});
     }
     async addCart(req,res,next){
+        if(!req.user){
+            req.flash('message', 'Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng !!!');
+            return res.redirect('/login');
+        }
         const id = req.params.id;
         const product = await Course.findById(id);
         if(!product){
