@@ -1,6 +1,7 @@
 <div class="wrapper d-flex flex-column min-vh-100 bg-light">
     <main role="main" class="detail-order">
         <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+        <form method="post" action="/admin/detail-comfirm/confirm/{{order._id}}">
         <div class="container">
                 <div class="py-5 text-center">
                     <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
@@ -36,22 +37,22 @@
                             <div class="col-md-12">
                                 <label for="kh_ten">Họ tên</label>
                                 <input type="text" class="form-control" name="name" id="kh_ten" value="{{order.name}}"
-                                    placeholder="Họ và tên">
+                                    placeholder="Họ và tên" disabled>
                             </div>
                             <div class="col-md-12">
                                 <label for="address">Địa chỉ</label>
                                 <input type="text" class="form-control" name="address" id="address"
-                                    placeholder="Số nhà - Đường - Huyện/Xã -Thành Phố" value="{{order.address}}">
+                                    placeholder="Số nhà - Đường - Huyện/Xã -Thành Phố" value="{{listAddress.road}}, {{listAddress.nameWard}}, {{listAddress.nameDistrict}}, {{listAddress.nameCity}}" disabled>
                             </div>
                             <div class="col-md-12">
                                 <label for="phone">Điện thoại</label>
                                 <input type="text" class="form-control" name="phone" id="phone"
-                                    placeholder="012345678" value="{{order.phoneNumber}}">
+                                    placeholder="012345678" value="{{order.phoneNumber}}" disabled>
                             </div>
                             <div class="col-md-12">
                                 <label for="kh_email">Email</label>
                                 <input type="text" class="form-control" name="email" id="email"
-                                    placeholder="example@ctu.edu.vn" value="{{order.email}}">
+                                    placeholder="example@ctu.edu.vn" value="{{order.email}}" disabled>
                             </div>
                         </div>
 
@@ -63,26 +64,27 @@
                         <div class="d-block my-3">
                                  <label for="kh_email">Hình thức thanh toán</label>
                                 <input type="text" class="form-control" name="email" id="email"
-                                    placeholder="example@ctu.edu.vn" value="{{order.paymentMethod}}">
+                                    placeholder="example@ctu.edu.vn" value="{{order.paymentMethod}}" disabled>
                         </div>
                         <div class="d-block my-3">
                             <label for="kh_email">Nhân viên giao hàng</label>
-                            <select class="select-create" name="type">
+                            <select class="select-create" id="shipper" name="shipper">
                                 {{#each staffShip}}
-                                    <option>{{this.staffShipName}}</option>
+                                    <option id="shipper" name="shipper" value="{{this._id}}">{{this.staffShipName}}</option>
                                 {{/each}}
                             </select>
                         </div>
                         <hr class="mb-4">
-                    {{#if (different order.status 'dang_van_chuyen')}}
-                         <a href="/admin/detail-order/confirm/{{order._id}}"><button class="btn btn-primary">xác nhận vận chuyển</button></a>
+                    {{#if (different order.status 'doi_van_chuyen')}}
+                         <a href="/admin/detail-comfirm/confirm/{{order._id}}"><button class="btn btn-primary">xác nhận</button></a>
                     {{/if}}
-                    {{#if (different order.status 'da_huy')}}
+                    {{!-- {{#if (different order.status 'da_huy')}}
                          <a href="/admin/detail-order/cancel/{{order._id}}"><button class="btn btn-danger">Hủy</button></a>
-                    {{/if}}
+                    {{/if}} --}}
                     </div>
                 </div>
         </div>
+        </form>
         <!-- End block content -->
     </main>
 

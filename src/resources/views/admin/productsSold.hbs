@@ -1,0 +1,38 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+
+      <p class="title-order">Sản phẩm đã bán</p>
+      <form action="/admin/productsSold" method="get">
+        <div>
+          <input type="text" name="keyword" class="filter-search" placeholder="tìm sản phẩm">
+
+          <select id="cars" class="select-type" name="price">
+            <option value="" selected>Số lượng</option>
+            <option value="asc">Thấp đến cao</option>
+            <option value="des">Cao đến thấp</option>
+  			  </select>
+
+          <button class="filter-btn" type="submit">Tìm</button>
+        </div>
+      </form>
+
+        <table class="tbl-order table table-striped">
+            <thead>
+                <tr>
+                    <th class="stt">STT</th>
+                    <th class="name-product">Tên sản phẩm</th>
+                    <th class="image-product">Số lượng</th>
+                    <th class="total-product">Tổng</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each productSummaryArray}}
+                  <tr class="product">
+                      <th scope="row">{{@index}}</th>
+                      <td class="product-name">{{this.name}}</td>
+                      <td class="product-name">{{this.quality}}</td>
+                      <td class="product-name">{{this.totalPrice}}</td>
+                  </tr>
+                {{/each}}
+            </tbody>
+        </table>  
+</div>

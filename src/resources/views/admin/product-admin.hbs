@@ -1,0 +1,77 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+
+      <p class="title-order">Sản phẩm</p>
+      <form action="/admin/product-admin" method="get">
+        <div>
+          <input type="text" name="keyword" class="filter-search" placeholder="tìm sản phẩm">
+
+          <select class="select-create" name="categoryId" id="categoryId">
+            <option value="" selected>Loại</option>
+            {{#each categoryList}}
+              <option id="categoryId" value="{{this._id}}">{{this.category_name}}</option>
+            {{/each}}
+          </select>
+
+          <select class="select-type" name="brand">
+            <option value="" selected>Thương hiệu</option>
+            <option name="brand" value="olym">olym</option>
+            <option name="brand" value="casio">casio</option>
+            <option name="brand" value="citizen">citizen</option>
+            <option name="brand" value="tissot">tissot</option>
+            <option name="brand" value="hublot">hublot</option>
+          </select>
+
+          <select id="cars" class="select-type" name="price">
+            <option value="" selected>Giá sản phẩm</option>
+            <option value="asc">Thấp đến cao</option>
+            <option value="des">Cao đến thấp</option>
+  			  </select>
+
+          <button class="filter-btn" type="submit">Tìm</button>
+        </div>
+      </form>
+
+        <table class="tbl-order table table-striped">
+            <thead>
+                <tr>
+                <th class="stt">STT</th>
+                <th class="name-product">Tên sản phẩm</th>
+                <th class="image-product">hình ảnh</th>
+                <th class="total-product">Giá bán</th>
+                <th class="type-product">Giá nhập</th>
+                <th class="detail-product">Loại</th>
+                <th class="brand-product">Thương hiệu</th>
+                <th class="edit-product">sửa</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                  <tr class="product">
+                      <th scope="row">{{@index}}</th>
+                      <td class="product-name">{{this.name_content}}</td>
+                      <td class="product-image"><img src="{{this.img}}" class="product-image"></td>
+                      <td>{{this.total}}</td>
+                      <td>{{this.importPrice}}</td>
+                      <td>{{this.categoryId.category_name}}</td>
+                      <td>{{this.brand}}</td>
+                      <td>
+                          <a href="/admin/product-admin/product/detail/{{this._id}}">Chi tiết</a>
+                          {{!-- <a href="" data-toggle="modal" data-id="{{this._id}}" data-target="#delete">Xóa</a> --}}
+                          <a href="/admin/product-admin/product/delete/{{this._id}}" onclick="if (confirm('Bạn có muốn xóa sản phẩm ?')){return true;}else{event.stopPropagation(); event.preventDefault();};" data-id="{{this._id}}" title="Link Title">
+                              Xóa
+                          </a>
+                      </td>
+                  </tr>
+                {{/each}}
+            </tbody>
+        </table>  
+                    {{!-- <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav> --}}
+</div>

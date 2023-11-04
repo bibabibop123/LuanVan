@@ -1,10 +1,8 @@
+   <script src="/js/paypal.js"></script>
 
-
-
-    <main role="main" class="payment">
-        <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+        <main role="main" class="payment">
         <div class="container mt-4">
-            <form class="needs-validation" name="frmthanhtoan" method="post"
+            <form id="formPayment" class="needs-validation" name="frmthanhtoan" method="post"
                 action="/payment">
 
                 <div class="py-5 text-center">
@@ -16,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-4 order-md-2 mb-4">
                         <h4 class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="text-muted">Giỏ hàng</span>
+                            <span class="text-muted">Giỏ hàng x {{totalQuantity}}</span>
                         </h4>
                         <ul class="list-group mb-3">
                             {{#each cart}}
@@ -47,10 +45,12 @@
                             </div>
                             <div class="col-md-12">
                                 <label for="address">Địa chỉ</label>
-                                <input type="text" class="form-control" name="address" id="address"
-                                    placeholder="Số nhà - Đường - Huyện/Xã -Thành Phố" value="{{user.address}}">
-                                    <select name="" id="" class="address-select">
-                                        <option>địa chỉ</option>
+                                {{!-- <input type="text" class="form-control" name="address" id="address"
+                                    placeholder="Số nhà - Đường - Huyện/Xã -Thành Phố" value="{{user.address}}"> --}}
+                                    <select id="addressnew" name="addressnew">
+                                        {{#each listAddress}}
+                                            <option value="{{this._id}}" name="addressnew">{{this.cityName}}, {{this.districtName}}, {{this.wardName}}, {{this.road}}</option>
+                                        {{/each}}
                                     </select>
                                 <a href="/addressUser" class="mt-4 mb-4">Thêm địa chỉ mới</a>
                                 
@@ -73,22 +73,24 @@
                             <div class="custom-control custom-radio">
                                 <input id="httt-3" name="paymentMethod" type="radio" class="custom-control-input" required=""
                                     value="cod" checked="true">
-                                <label class="custom-control-label" for="httt-3">Ship COD</label>
+                                <label id="httt-3" class="custom-control-label" for="httt-3">Nhận hàng và thanh toán</label>
                             </div>
                             <div class="custom-control custom-radio">
                                 <input id="httt-2" name="paymentMethod" type="radio" class="custom-control-input" required=""
                                     value="atm">
-                                <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
+                                <label id="httt-2" class="custom-control-label" for="httt-2">Thanh toán QR</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input id="httt-2" name="paymentMethod" type="radio" class="custom-control-input" required=""
-                                    value="atm">
-                                <label class="custom-control-label" for="httt-2">Thanh toán VNPAY</label>
+                                <input id="httt-4" name="paymentMethod" type="radio" class="custom-control-input" required=""
+                                    value="paypal">
+                                <label id="httt-4" class="custom-control-label" for="httt-4">Thanh toán Paypal</label>
                             </div>
                         </div>
                         <hr class="mb-4">
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">Đặt hàng</button>
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">Thanh toán momo</button>
+                            <button id="myButton" style="display: block" class="btn btn-primary btn-lg btn-block" type="submit">Đặt hàng</button>
+                            
+                            <div style="display: none" id="paypal-button-container"></div>
+                            {{!-- <button id="paypal-button-container" style="display: none" class="btn btn-primary btn-lg btn-block" type="submit">Thanh toán paypal</button> --}}
                     </div>
                 </div>
             </form>
@@ -97,11 +99,67 @@
         <!-- End block content -->
     </main>
 
+                        <script>
+                        const radioOption1 = document.getElementById("httt-4");
+                        const radioOption3 = document.getElementById("httt-3");
+                        const radioOption2 = document.getElementById("httt-2");
+                        const myButton = document.getElementById("myButton");
+                        const myButtonPaypal = document.getElementById("paypal-button-container");
+
+                        // const cartData = require('../../app/controllers/PaymentController');
+
+                        radioOption1.addEventListener("change", function() {
+                            if (radioOption1.checked) {
+                                myButton.style.display = "none"; 
+                                myButtonPaypal.style.display = "block"; 
+                            } 
+                        });
+
+                        radioOption2.addEventListener("change", function() {
+                            if (radioOption2.checked) {
+                                myButton.style.display = "block"; 
+                                myButtonPaypal.style.display = "none"; 
+                            } 
+                        });
+
+                        radioOption3.addEventListener("change", function() {
+                            if (radioOption3.checked) {
+                                myButton.style.display = "block"; 
+                                myButtonPaypal.style.display = "none";
+                            }
+                        });
+
+                        paypal.Buttons({
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: {
+                                        value: {{total}} // Số tiền thanh toán
+                                    },
+                                application_context: {
+                                        return_url: '/',
+                                    },
+                                }]
+                            });
+                        },
+                        onApprove: function(data, actions) {
+                            return actions.order.capture().then(function(details) {
+                                console.log(details);
+                                var form = document.getElementById('formPayment'); // Thay 'myForm' bằng ID của form của bạn
+                                
+                                form.submit();
+                                
+                            });
+                        }
+                    }).render('#paypal-button-container');
+                </script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+    {{!-- <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/popperjs/popper.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script> --}}
 
     <!-- Custom script - Các file js do mình tự viết -->
-    <script src="../assets/js/app.js"></script>
+   {{!-- <script src="../assets/js/app.js"></script> --}}
+

@@ -1,180 +1,408 @@
-<div class="wrapper d-flex flex-column min-vh-100 bg-light">
-    <header class="header header-sticky mb-4">
+<div class="wrapper d-flex flex-column  bg-light">
+
       <div class="container-fluid">
-        <button class="header-toggler px-md-0 me-md-3" type="button"
-          onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
-          <svg class="icon icon-lg">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
-          </svg>
-        </button><a class="header-brand d-md-none" href="#">
-          <svg width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="assets/brand/coreui.svg#full"></use>
-          </svg></a>
-        {{!-- <ul class="header-nav d-none d-md-flex">
-          <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
-        </ul> --}}
-          <p class="admin-header">Bạn có toàn quyền ở trang này</p>
-        <ul class="header-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">
-              <svg class="icon icon-lg">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
-              </svg></a></li>
-          <li class="nav-item"><a class="nav-link" href="#">
-              <svg class="icon icon-lg">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
-              </svg></a></li>
-          <li class="nav-item"><a class="nav-link" href="#">
-              <svg class="icon icon-lg">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
-              </svg></a></li>
-        </ul>
-        <ul class="header-nav ms-3">
-          <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button"
-              aria-haspopup="true" aria-expanded="false">
-              <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg" alt="user@email.com">
-              </div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end pt-0">
-              <div class="dropdown-header bg-light py-2">
-                <div class="fw-semibold">Account</div>
-              </div><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
-                </svg> Updates<span class="badge badge-sm bg-info ms-2">42</span></a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
-                </svg> Messages<span class="badge badge-sm bg-success ms-2">42</span></a><a class="dropdown-item"
-                href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-task"></use>
-                </svg> Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                </svg> Comments<span class="badge badge-sm bg-warning ms-2">42</span></a>
-              <div class="dropdown-header bg-light py-2">
-                <div class="fw-semibold">Settings</div>
-              </div><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
-                </svg> Profile</a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
-                </svg> Settings</a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-credit-card"></use>
-                </svg> Payments<span class="badge badge-sm bg-secondary ms-2">42</span></a><a class="dropdown-item"
-                href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-file"></use>
-                </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
-              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                </svg> Lock Account</a><a class="dropdown-item" href="#">
-                <svg class="icon me-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                </svg> Logout</a>
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Trang Chủ</h1>
+                        {{!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Thu Nhập (COD)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalAmount}} $</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Thu Nhập (Paypal & QR)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                                Tổng sản phẩm</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{courseNumber}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Số lượng đơn hàng</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{numberOfOrders}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div style="color:teal;" class="text-xs font-weight-bold text-uppercase mb-1">
+                                                Thu nhập (Ngày)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalForToday}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div style="color: coral;" class="text-xs font-weight-bold text-uppercase mb-1">
+                                                Thu nhập (Tháng)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalInMonth}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div style="color: cadetblue;" class="text-xs font-weight-bold text-uppercase mb-1">
+                                                Thu nhập (Năm)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalForCurrentYear}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div style="color: crimson;" class="text-xs font-weight-bold text-uppercase mb-1">
+                                                Tổng các đơn hàng</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalSum}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Tổng quan thu nhập</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myChart" width="400" height="200"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Project Card Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Đơn hàng mới</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold">Server Migration <span
+                                            class="float-right">20%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Sales Tracking <span
+                                            class="float-right">40%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Customer Database <span
+                                            class="float-right">60%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Payout Details <span
+                                            class="float-right">80%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Account Setup <span
+                                            class="float-right">Complete!</span></h4>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Color System -->
+                            <div class="row">
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-primary text-white shadow">
+                                        <div class="card-body">
+                                            Primary
+                                            <div class="text-white-50 small">#4e73df</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-success text-white shadow">
+                                        <div class="card-body">
+                                            Success
+                                            <div class="text-white-50 small">#1cc88a</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-info text-white shadow">
+                                        <div class="card-body">
+                                            Info
+                                            <div class="text-white-50 small">#36b9cc</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-warning text-white shadow">
+                                        <div class="card-body">
+                                            Warning
+                                            <div class="text-white-50 small">#f6c23e</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-danger text-white shadow">
+                                        <div class="card-body">
+                                            Danger
+                                            <div class="text-white-50 small">#e74a3b</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-secondary text-white shadow">
+                                        <div class="card-body">
+                                            Secondary
+                                            <div class="text-white-50 small">#858796</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-light text-black shadow">
+                                        <div class="card-body">
+                                            Light
+                                            <div class="text-black-50 small">#f8f9fc</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-dark text-white shadow">
+                                        <div class="card-body">
+                                            Dark
+                                            <div class="text-white-50 small">#5a5c69</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Lượt đánh giá</h6>
+                                </div>
+                                <div class="card-body">
+                                   <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Approach -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                        CSS bloat and poor page performance. Custom CSS classes are used to create
+                                        custom components and custom utility classes.</p>
+                                    <p class="mb-0">Before working with this theme, you should become familiar with the
+                                        Bootstrap framework, especially the utility classes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </li>
-        </ul>
-      </div>
-      {{!-- <div class="header-divider"></div>
-      <div class="container-fluid">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb my-0 ms-2">
-            <li class="breadcrumb-item">
-              <!-- if breadcrumb is single--><a href="#">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-              <!-- if breadcrumb is single--><a href="#">Theme</a>
-            </li>
-            <li class="breadcrumb-item active"><span>Colors</span></li>
-          </ol>
-        </nav>
-      </div> --}}
-    </header>
-      <p class="title-order">Sản phẩm</p>
-      <div>
-        <input type="text" class="filter-search" placeholder="tìm sản phẩm">
-
-        <select class="select-type">
-          <option value="male">male</option>
-          <option value="female">female</option>
-          <option value="couple">couple</option>
-        </select>
-
-        <select class="select-type">
-          <option value="olym">olym</option>
-          <option value="casio">casio</option>
-          <option value="citizen">citizen</option>
-          <option value="tissot">tissot</option>
-          <option value="hublot">hublot</option>
-        </select>
-
-        <button class="filter-btn">Tìm</button>
-      </div>
-        {{!-- <form action="/payment/">
-         <button type="submit" class="create-product">Thêm sản phẩm</button>
-      </form> --}}
-      <table class="tbl-order table table-striped">
-          <thead>
-              <tr>
-              <th class="stt">STT</th>
-              <th class="name-product">Tên sản phẩm</th>
-              <th class="image-product">hình ảnh</th>
-              <th class="total-product">Giá</th>
-              <th class="type-product">Loại</th>
-              <th class="detail-product">Chi tiết</th>
-              <th class="brand-product">Thương hiệu</th>
-              <th class="edit-product">sửa</th>
-              </tr>
-          </thead>
-          <tbody>
-              {{!-- <tr class="product">
-                  <td class="product-name">CITIZEN AU1080-20A ECO-DRIVE</td>
-                  <td>
-                    <img src="http://mauweb.monamedia.net/dongho/wp-content/uploads/2018/03/dong-ho-citizen-au1080-20a-nam-eco-drive-day-vai-600x600-300x300.jpg" alt="" class="product-image">
-                  </td>
-                  <td>5.000.000</td>
-                  <td>
-                    <select class="form-select" id="sel1" name="sellist1">
-                      <option>male</option>
-                      <option>female</option>
-                    </select>
-                  </td>
-                  <td class="product-detail">Đồng hồ nam Citizen AU1080-20A nổi bật Pin sử dụng công nghệ hiện đại Eco-Drive (Năng Lượng Ánh Sáng), với thiết kế theo phong cách thời trang với dây đeo chất liệu bằng vải tông màu kem trẻ trung</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-              </tr> --}}
-              {{#each products}}
-                <tr class="product">
-                    <th scope="row">{{@index}}</th>
-                    <td class="product-name">{{this.name_content}}</td>
-                    <td class="product-image"><img src="{{this.img}}" class="product-image"></td>
-                    <td>{{this.total}}</td>
-                    <td>{{this.type}}</td>
-                    <td class="product-detail">{{this.detail}}</td>
-                    <td>{{this.brand}}</td>
-                    <td>
-                        <a href="/admin/product/detail/{{this._id}}">Sửa</a>
-                        {{!-- <a href="" data-toggle="modal" data-id="{{this._id}}" data-target="#delete">Xóa</a> --}}
-                        <a href="/admin/product/delete/{{this._id}}" onclick="if (confirm('Bạn có muốn xóa sản phẩm ?')){return true;}else{event.stopPropagation(); event.preventDefault();};" data-id="{{this._id}}" title="Link Title">
-                            Xóa
-                        </a>
-                    </td>
-                </tr>
-              {{/each}}
-          </tbody>
-      </table>   
-                    {{!-- <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-              </nav> --}}
+        </div>
+    </div>
   </div>
+
+<script>
+    const data = {
+        labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5   ", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+        datasets: [
+        {
+            label: "Tổng đơn hàng theo từng tháng",
+            data: [{{totalOfMonth1}}, {{totalOfMonth2}}, {{totalOfMonth3}}, {{totalOfMonth4}}, {{totalOfMonth5}}, {{totalOfMonth6}}, 
+                {{totalOfMonth7}}, {{totalOfMonth8}}, {{totalOfMonth9}}, {{totalOfMonth10}}, {{totalOfMonth11}}, {{totalOfMonth12}}],
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+        },
+        ],
+    };
+
+    const ctx = document.getElementById("myChart").getContext("2d");
+    const myChart = new Chart(ctx, {
+    type: "bar",
+    data: data,
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true,
+        },
+        },
+    },
+    });
+
+</script>
+
+
+  
+<script>
+
+    window.onload = function() {
+    var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+                text: "Đánh giá sản phẩm"
+            },
+            data: [{
+                type: "pie",
+                startAngle: 240,
+                yValueFormatString: "##0.00\"%\"",
+                indexLabel: "{label} {y}",
+                dataPoints: [
+                    {y: {{evaluateGood}}, label: "Tốt"},
+                    {y: {{evaluateNotGood}}, label: "Không tốt"},
+                ]
+            }]
+        });
+        chart.render();
+    }
+</script>
+
+
+      <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+

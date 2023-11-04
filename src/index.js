@@ -7,9 +7,12 @@ const flash = require('connect-flash');
 const path = require("path");
 const Course = require("./app/models/Course");
 const Category = require("./app/models/category");
-const { paymentStatusConverString } = require("./config/enum.config");
+const paypal = require('paypal-rest-sdk')
+const { paymentStatusConverString, listCityData, listDistrictData, listWardsData } = require("./config/enum.config");
 const app = express();
+
 const port = 3000;
+
 
 const db = require("./config/db");
 
@@ -18,6 +21,12 @@ const bodyParser = require("body-parser");
 const route = require("./routes");
 
 db.connect();
+
+paypal.configure({
+  'mode': 'sandbox', //sandbox or live
+  'client_id': 'AcaaiFKiCiOAjy-DmKmedZ__kxw441NaAxAuQfiuxwPqLu5RlJwcoftq08UG3vLGW3Kn4Kxt7ndUxIfb',
+  'client_secret': 'EHHP5m6sxBv6iWOrAdbNGOCMWpRZYFMqU7Ihdze_jgnY-ijF6zIG5kF5P3-wCwppLlHH8osggEc68zsO'
+});
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -58,11 +67,19 @@ app.engine(
   engine({
     extname: ".hbs",
     helpers: {
+      or: (a, b, c) => a !== b || a !== c || b !== c,  
       sum: (a, b) => a + b,
       multiply:(a,b)=>a*b,
       equal: (a,b)=> a ==b,
+      // isSelected: (a,b)=>{
+      //   console.log(a,b);
+      //   return a?.toString()==b?.toString()?"selected":""
+      // },
       different :(a,b)=>a!=b,
       paymentStatusConverString: paymentStatusConverString,
+      listCityData: listCityData(),
+      listDistrictData: listDistrictData(),
+      listWardsData: listWardsData(),
     },
   })
 );
@@ -78,10 +95,22 @@ app.use((req,res,next)=>{
       req.user = req.session.user;
       res.locals.user = req.session.user;
   }
+  if(req.session.staff){
+    req.staff = req.session.staff;
+    res.locals.staff = req.session.staff;
+  }
+  if(req.session.staffShip){
+    req.staffShip = req.session.staffShip;
+    res.locals.staffShip = req.session.staffShip;
+  }
+  
   next();
 })
 
 route(app);
+
+
+
 
 app.get("/", async (req, res, next) => {
   const maleCategory = await Category.findOne({ category_name: "male" })

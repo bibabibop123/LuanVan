@@ -1,5 +1,5 @@
-<section class="vh-100 gradient-custom">
-  <div class="bg-color py-5 h-100">
+<section class="gradient-custom">
+  <div class="bg-color py-5">
     <div class="row justify-content-center bg-color align-items-center h-100">
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
@@ -64,12 +64,24 @@
                 <div class="col-md-12 mb-4 pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="address">Địa chỉ</label>
-                    <input type="tel" id="address" class="form-control form-control-lg" name="address"/>
+                    <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm">
+                        <option value="tỉnh" selected>{{this.City}}Chọn tỉnh thành</option>           
+                    </select>
+                            
+                    <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
+                        <option value="" selected>{{this.Districts}}Chọn quận huyện</option>
+                    </select>
+
+                    <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
+                        <option value="" selected>{{this.Wards}}Chọn phường xã</option>
+                    </select>
+                    <input type="text" class="form-control form-control-lg" name="road" placeholder="Số nhà, Tên đường">
+                  </div>
                   </div>
                 </div>
               </div>
               <div class="mt-4 pt-2">
-                <input class="btn btn-primary btn-lg" type="submit" value="Đăng Ký" />
+                <input class="btn btn-primary btn-lg btn-reg" type="submit" value="Đăng Ký" />
               </div>
 
             </form>
@@ -79,3 +91,5 @@
     </div>
   </div>
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>

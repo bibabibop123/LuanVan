@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const admindetailcompleteController = require('./../../app/controllers/AdminDetailCompleteController');
+const admindetailcompleteController = require('../../app/controllers/Admin/AdminDetailCompleteController');
 
 // router.get('/', (req,res)=>{
 //     res.render('admin/detail-order',{layout:'admin'});

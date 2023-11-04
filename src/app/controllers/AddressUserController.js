@@ -17,21 +17,24 @@ class AddressUserController {
         // await city.findById(req.).
         // console.log(req.body);
         //await city.findById(req.body.id);
-        const nameCity = city.find((item)=>item.Id ==req.body.city);
         // console.log(cityData);
-        const nameDistrict = nameCity.Districts.find((item)=>item.Id == req.body.district);
         // console.log(nameDistrict);
-        const nameWard = nameDistrict.Wards.find((item)=>item.Id ==req.body.ward);
         // console.log(cityData.Name);
         // console.log(nameWard.Name);
         // console.log(nameDistrict.Name);
 
         // console.log('user', user)
+        const nameCity = city.find((item)=>item.Id ==req.body.city);
+        const nameDistrict = nameCity.Districts.find((item)=>item.Id == req.body.district);
+        const nameWard = nameDistrict.Wards.find((item)=>item.Id ==req.body.ward);
         await address.create ({
             userId:req.user._id,
-            City:nameCity.Name,
-            district:nameDistrict.Name,
-            ward:nameWard.Name,
+            City:nameCity.Id,
+            nameCity:nameCity.Name,
+            district:nameDistrict.Id,
+            nameDistrict:nameDistrict.Name,
+            ward:nameWard.Id,
+            nameWard:nameWard.Name,
             road:req.body.road,
         });
         req.flash('message', 'Thêm địa chỉ mới thành công !!!');

@@ -53,6 +53,12 @@
   color: white;
 }
 
+.btn-reg {
+  margin-left: 40%;
+  margin-bottom: 20px !important;
+}
+
+
 .dropbtn {
   background-color: black;
   color: white;
@@ -68,6 +74,7 @@
   display: inline-block;
   float: right;
 }
+
 
 .toastify {
   right: 500 !important;
@@ -131,6 +138,10 @@
   top: 13px;
   }
 
+  // .form-user {
+  //   margin-left: 20% !important;
+  // }
+
 .bg-image-vertical {
   position: relative;
   overflow: hidden;
@@ -151,7 +162,7 @@
 
 .user {
   height: 100%;
-  width: 50px;
+  width: 100px;
   background-color: black;
   display: block;
 }
@@ -868,10 +879,14 @@ table {
 }
 
 .cart-shopping{
-  width: 100px;
+  width: 150px;
   height: 50px;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 10px;
   margin-bottom: 30px;
-  margin-left: 30px;
+  margin-left: 45%;
 }
 
 
@@ -1075,7 +1090,7 @@ table {
   opacity: 1;
 }
 .tab-content {
-  padding: 28px 0;
+  padding:  0;
 }
 .tab-pane {
   color: #333;
@@ -1102,6 +1117,102 @@ table {
   width: 20%;
   height: 20px;
 }
+
+.nameOrder {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+table {
+  .trOrder {
+    height: 50px !important;
+  }
+}
+
+.carousel-control-next {
+  color: black !important;
+}
+
+.detail {
+  width: 100%;
+  padding-left: 2%;
+
+  .textDetail {
+    font-size: 20px;
+    text-overflow: initial;
+  }
+}
+
+.with {
+  width: 90% !important;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+// .star {
+//   background: none;
+//   border: none;
+//   color: black;
+//   outline: none;
+//   margin-bottom: 10px;
+//   font-size: 30px;
+// }
+
+.evaluateSelect {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  width: 30%;
+}
+
+.evaluate {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.evaluateSelect1 {
+  color: #a6a6a6;
+  font-size: 17px;
+  margin-top: 35px;
+}
+
+.evaluate1 {
+  font-size: 17px;
+}
+
+.toastify {
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+
+
+
+
+
+
+
+
 
 
 

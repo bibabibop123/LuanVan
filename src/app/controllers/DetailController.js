@@ -1,13 +1,18 @@
 const Course = require('../models/Course');
 const Comment = require('./../models/comment');
 const Like = require('./../models/likeProduct');
+const image = require('./../models/productImage');
+const detail = require('./../models/detailProduct');
 
 class DetailController {
     async detail ( req, res, next) {
         const  courses = await Course.findOne({name_content: req.params.name}).lean();
-        // console.log('Course', courses.quantity);
+
+        const imageProduct = await image.find({productId: courses._id}).lean();
+        const detailProduct = await detail.find({productId: courses._id}).lean();
+        // console.log('Course', detailProduct);
         const comments = await Comment.find({productId: courses._id}).sort({createdAt:-1}).lean();
-        return res.render('detail', {courses :courses,comments:comments})
+        return res.render('detail', {courses :courses,comments:comments,imageProduct:imageProduct,detailProduct:detailProduct})
     }
 
     async like(req, res, next) {

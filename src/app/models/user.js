@@ -7,9 +7,9 @@ const UserSchema = new Schema({
     password: { type: String},
     email: { type: String,unique: true},
     phoneNumber: { type: String},
-    address: { type: String},
+    // address: { type: String},
     verification: { type: String},
-    addressnew: { type: String},
+    addressId: { type: mongoose.Types.ObjectId, ref: "address"},
   }, {
     timestamps: true,
   });

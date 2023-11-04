@@ -1,0 +1,90 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <main role="main" class="detail-order">
+        <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+        <div class="container">
+                <div class="py-5 text-center">
+                    <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
+                    <h2>Chi Tiết Đơn Hàng</h2>
+                    <p class="lead">Vui lòng kiểm tra thông tin Khách hàng trước khi xác nhận hoặc hủy đơn hàng</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 order-md-2 mb-4">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-muted">Đơn hàng</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                            {{#each order.products}}
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">{{this.name}}</h6>
+                                    <small class="text-muted">{{this.price}} x {{this.quality}}</small>
+                                </div>
+                                <span class="text-muted">{{multiply this.price this.quality}}</span>
+                            </li>
+                            {{/each}}
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Tổng thành tiền</span>
+                                <strong>{{order.total}}</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 order-md-1">
+                        <h4 class="mb-3">Thông tin khách hàng</h4>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="kh_ten">Họ tên</label>
+                                <input type="text" class="form-control" name="name" id="kh_ten" value="{{order.name}}"
+                                    placeholder="Họ và tên" disabled>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="address">Địa chỉ</label>
+                                <input type="text" class="form-control" name="address" id="address"
+                                    placeholder="Số nhà - Đường - Huyện/Xã -Thành Phố" value="{{listAddress.road}}, {{listAddress.nameWard}}, {{listAddress.nameDistrict}}, {{listAddress.nameCity}}" disabled>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="phone">Điện thoại</label>
+                                <input type="text" class="form-control" name="phone" id="phone"
+                                    placeholder="012345678" value="{{order.phoneNumber}}" disabled>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_email">Email</label>
+                                <input type="text" class="form-control" name="email" id="email"
+                                    placeholder="example@ctu.edu.vn" value="{{order.email}}" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="kh_email">Trạng Thái</label>
+                            <input type="text" class="form-control" name="email" id="email"
+                                placeholder="example@ctu.edu.vn" value="{{paymentStatusConverString order.status}}" disabled>
+                        </div>
+                        <div class="d-block my-3">
+                                 <label for="kh_email">Hình thức thanh toán</label>
+                                <input type="text" class="form-control" name="email" id="email"
+                                    placeholder="example@ctu.edu.vn" value="{{order.paymentMethod}}" disabled>
+                        </div>
+                        <hr class="mb-4">
+                    {{!-- {{#if (different order.status 'da_huy')}}
+                         <a href="/detailOrder/cancel/{{order._id}}"><button class="btn btn-primary">Hủy đơn hàng</button></a>
+                    {{/if}} --}}
+                    {{!-- {{#if (different order.status 'da_huy')}}
+                         <a href="/admin/detail-order/cancel/{{order._id}}"><button class="btn btn-danger">Hủy</button></a>
+                    {{/if}} --}}
+                    </div>
+                </div>
+        </div>
+        <!-- End block content -->
+    </main>
+
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/popperjs/popper.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Custom script - Các file js do mình tự viết -->
+    <script src="../assets/js/app.js"></script>

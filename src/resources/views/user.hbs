@@ -1,5 +1,5 @@
-<section class="vh-100 user">
-  <div class="container py-5 h-100">
+<section class=" user">
+  <div class="container form-user py-5">
     <div class=" form-user row justify-content-center align-items-center h-100">
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
@@ -51,7 +51,12 @@
                 <div class="col-md-12 mb-4 pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="address">Địa chỉ</label>
-                    <input type="tel" id="address" class="form-control form-control-lg" name="address" value="{{userInfo.address}}" />
+                    {{!-- <input type="tel" id="address" class="form-control form-control-lg" name="address" value="{{userInfo.address}}" /> --}}
+                      <select id="addressnew" name="addressnew">
+                          {{#each listAddress}}
+                            <option value="{{this._id}}" name="addressnew">{{this.nameCity}}, {{this.nameDistrict}}, {{this.nameWard}}, {{this.road}}</option>
+                          {{/each}}
+                      </select>
                     <a href="/addressUser" class="mt-4 mb-4">Thêm địa chỉ mới</a>
                   </div>
                 </div>

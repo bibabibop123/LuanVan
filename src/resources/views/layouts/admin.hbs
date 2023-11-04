@@ -32,6 +32,7 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/admin-resource/assets/favicon/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/admin-resource/assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="/admin-resource/assets/favicon/manifest.json">
+  {{!-- <link rel="stylesheet" href="/css/app.css"> --}}
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/admin-resource/assets/favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
@@ -42,9 +43,20 @@
   <link href="/admin-resource/css/style.css" rel="stylesheet">
   <!-- We use those styles to show code examples, you should remove them in your application.-->
   <link rel="/admin-resource/stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
+      <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="/admin-resource/css/examples.css" rel="stylesheet">
   <!-- Global site tag (gtag.js) - Google Analytics-->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -61,15 +73,14 @@
 
 <body>
     {{> admin-slidebar}} 
+      {{> headerAdmin}}
       {{{ body}}}
   <!-- CoreUI and necessary plugins-->
   <script src="/admin-resource/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
   <script src="/admin-resource/vendors/simplebar/js/simplebar.min.js"></script>
   <!-- Plugins and scripts required by this view-->
   <script src="/admin-resource/vendors/@coreui/utils/js/coreui-utils.js"></script>
-  <script src="/admin-resource/js/colors.js"></script>
-  <script>
-  </script>
+  <script src="/admin-resource/js/colors.js"></script>  
 
 </body>
 

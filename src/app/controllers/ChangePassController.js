@@ -5,7 +5,7 @@ class ChangePassController {
         return res.render('change-password');
     }
     async changePassAction ( req, res, next) {
-        console.log(req.body);
+        // console.log(req.body);
         const user = await User.findById(req.user._id);
         if(user.password !=req.body.oldPassword){
             req.flash('message', 'Mật Khẩu không đúng !!!');

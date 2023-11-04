@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const admindetailcancelController = require('./../../app/controllers/AdminDetailCancelController');
+const admindetailcancelController = require('../../app/controllers/Admin/AdminDetailCancelController');
 
 // router.get('/', (req,res)=>{
 //     res.render('admin/detail-order',{layout:'admin'});

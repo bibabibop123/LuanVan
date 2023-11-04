@@ -41,7 +41,7 @@
                             <div class="col-md-12">
                                 <label for="address">Địa chỉ</label>
                                 <input type="text" class="form-control" name="address" id="address"
-                                    placeholder="Số nhà - Đường - Huyện/Xã -Thành Phố" value="{{order.address}}">
+                                    placeholder="Số nhà - Đường - Huyện/Xã -Thành Phố" value="{{listAddress.road}}, {{listAddress.nameWard}}, {{listAddress.nameDistrict}}, {{listAddress.nameCity}}">
                             </div>
                             <div class="col-md-12">
                                 <label for="phone">Điện thoại</label>
@@ -65,21 +65,21 @@
                                 <input type="text" class="form-control" name="email" id="email"
                                     placeholder="example@ctu.edu.vn" value="{{order.paymentMethod}}">
                         </div>
-                        <div class="d-block my-3">
+                        {{!-- <div class="d-block my-3">
                             <label for="kh_email">Nhân viên giao hàng</label>
                             <select class="select-create" name="type">
                                 {{#each staffShip}}
                                     <option>{{this.staffShipName}}</option>
                                 {{/each}}
                             </select>
-                        </div>
+                        </div> --}}
                         <hr class="mb-4">
-                    {{#if (different order.status 'xac_nhan')}}
+                    {{!-- {{#if (different order.status 'xac_nhan')}}
                          <a href="/admin/detail-order/confirm/{{order._id}}"><button class="btn btn-primary">xác nhận</button></a>
                     {{/if}}
                     {{#if (different order.status 'da_huy')}}
                          <a href="/admin/detail-order/cancel/{{order._id}}"><button class="btn btn-danger">Hủy</button></a>
-                    {{/if}}
+                    {{/if}} --}}
                     </div>
                 </div>
         </div>

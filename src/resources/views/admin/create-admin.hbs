@@ -12,7 +12,7 @@
         <div class="col">
           <div class="form-outline">
             <label class="form-label" for="form6Example2">Giá tiền</label>
-            <input type="text" id="form6Example2" class="form-control" name="total"/>
+            <input type="number" id="form6Example2" class="form-control" name="total" inputmode="numeric" pattern="[0-9]*" />
           </div>
         </div>
       </div>
@@ -23,14 +23,27 @@
         <input type="text" id="form6Example3" class="form-control" name="img"/>
       </div>
 
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example3">Hình ảnh 2</label>
+        <input type="text" id="form6Example3" class="form-control" value="" name="image1"/>
+      </div>
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example3">Hình ảnh 3</label>
+        <input type="text" id="form6Example3" class="form-control" value="" name="image2"/>
+      </div>
+
         <div class="row mb-4">
         <div class="col">
           <div class="form-outline">
             <label class="form-label" for="form6Example1">Loại sản phẩm:</label>
-            <select class="select-create" name="type">
-                <option value="male" {{#if (equal courses.type "male")}} selected {{/if}}>male</option>
+            <select class="select-create" name="categoryId" id="categoryId">
+                {{!-- <option value="male" {{#if (equal courses.type "male")}} selected {{/if}}>male</option>
                 <option value="female" {{#if (equal courses.type "female")}} selected {{/if}}>female</option>
-                <option value="couple" {{#if (equal courses.type "couple")}} selected {{/if}}>couple</option>
+                <option value="couple" {{#if (equal courses.type "couple")}} selected {{/if}}>couple</option> --}}
+                {{#each category}}
+                  <option id="categoryId" value="{{this._id}}">{{this.category_name}}</option>
+                {{/each}}
             </select>
           </div>
         </div>
@@ -48,11 +61,29 @@
         </div>
       </div>
 
+
+      <div class="col">
+        <div class="form-outline">
+          <label class="form-label" for="form6Example1">Số lượng:</label>
+            <input type="text" id="form6Example1" class="form-control with" value="" name="quantity"/>
+        </div>
+      </div>
+
       <!-- Message input -->
       <div class="form-outline mb-4">
         <label class="form-label" for="form6Example7">Chi tiết mô tả sản phẩm</label>
         <textarea class="form-control" id="form6Example7" rows="4" name="detail"></textarea>
       </div>
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example7">Chi tiết mô tả sản phẩm</label>
+        <textarea class="form-control" id="form6Example7" rows="4" value="" name="detail1"></textarea>
+      </div>
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example7">Chi tiết mô tả sản phẩm</label>
+        <textarea class="form-control" id="form6Example7" rows="4" value="" name="detail2"></textarea>
+        </div>
 
       <!-- Submit button -->
       <button type="submit" class="btn-create btn btn-primary btn-block mb-4">Thêm sản phẩm</button>

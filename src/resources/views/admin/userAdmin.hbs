@@ -1,0 +1,37 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <p class="title-order">Khách hàng</p>
+        <form action="/admin/userAdmin" method="get">
+            <div>
+            <input type="text" name="keyword" class="filter-search" placeholder="tìm tên khách hàng">
+
+            <button class="filter-btn" type="submit">Tìm</button>
+            </div>
+        </form>
+    <table class="tbl-order table table-striped">
+        <thead>
+            <tr>
+            <th class="order-stt">Stt</th>
+            <th class="order-name">Tên Khách hàng</th>
+            <th class="order-number">Số điện thoại</th>
+            <th class="order-total">Email</th>
+            <th class="order-total">Tổng đơn hàng</th>
+            <th class="order-total">Tổng tiền</th>
+            {{!-- <th class="order-status">Chi tiết đơn hàng</th> --}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each userData}}
+                <tr class="product">
+                    <th scope="row">{{@index}}</th>
+                    <td class="product-name">{{this.firstName}} {{this.lastName}}</td>
+                    <td class="product-name">{{this.phoneNumber}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.userOrder}}</td>
+                    <td>{{this.totalNumber}}</td>
+
+                </tr>
+              {{/each}}
+
+        </tbody>
+    </table>
+</div>

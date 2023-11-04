@@ -24,12 +24,12 @@ class CoursesController {
         return res.render('courses', {male:array_male});
     }
     
-    async listCourse(req, res, next){
-        // const  courses = await Course.find({}).populate('categoryId').lean();
-        const maleCategory = await Category.findOne({ category_name: "male" })
-        // console.log(courses)
-        return res.render('update', {maleCategory :maleCategory})
-    }
+    // async listCourse(req, res, next){
+    //     // const  courses = await Course.find({}).populate('categoryId').lean();
+    //     const maleCategory = await Category.findOne({ category_name: "male" })
+    //     // console.log(courses)
+    //     return res.render('update', {maleCategory :maleCategory})
+    // }
 
     async updateCourse(req, res, next){
         // res.json(req.body);

@@ -1,0 +1,37 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <p class="title-order">Khách hàng</p>
+        <form action="/admin/commentAdmin" method="get">
+            <div>
+            <input type="text" name="keyword" class="filter-search" placeholder="tìm tên khách hàng">
+
+            <button class="filter-btn" type="submit">Tìm</button>
+            </div>
+        </form>
+    <table class="tbl-order table table-striped">
+        <thead>
+            <tr>
+            <th class="order-stt">STT</th>
+            <th class="order-name">Tên Khách hàng</th>
+            <th class="order-number">Số điện thoại</th>
+            <th class="order-total">Đánh giá</th>
+            <th class="order-total">Góp ý</th>
+            <th class="order-total">Chi tiết</th>
+            {{!-- <th class="order-status">Chi tiết đơn hàng</th> --}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each orders}}
+                <tr class="product">
+                    <th scope="row">{{@index}}</th>
+                    <td class="product-name">{{this.name}}</td>
+                    <td class="product-name">{{this.phone}}</td>
+                    <td class="product-name">{{this.evaluate}}</td>
+                    <td class="product-name">{{this.evaluateContent}}</td>
+                    <td>
+                        <a href="/admin/detailComment/{{this._id}}" class="detai-order-status">Chi tiết</a>
+                    </td>
+                </tr>
+              {{/each}}
+        </tbody>
+    </table>
+</div>

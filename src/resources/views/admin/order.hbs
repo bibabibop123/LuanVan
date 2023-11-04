@@ -1,5 +1,12 @@
 <div class="wrapper d-flex flex-column min-vh-100 bg-light">
     <p class="title-order">Đơn hàng chờ xác nhận</p>
+        <form action="/admin/order" method="get">
+            <div>
+            <input type="text" name="keyword" class="filter-search" placeholder="tìm tên người đặt">
+
+            <button class="filter-btn" type="submit">Tìm</button>
+            </div>
+      </form>
     <table class="tbl-order table table-striped">
         <thead>
             <tr>
@@ -14,9 +21,9 @@
         <tbody>
             {{#each orders}}
                 <tr class="product">
-                    <td>1</td>
+                    <th scope="row">{{@index}}</th>
                     <td class="product-name">{{this.name}}</td>
-                    <td class="product-name">{{this.total}}</td>
+                    <td class="product-name">{{this.phone}}</td>
                     <td class="product-name">{{paymentStatusConverString this.status}}</td>
                     <td>{{this.total}}</td>
                 <td>

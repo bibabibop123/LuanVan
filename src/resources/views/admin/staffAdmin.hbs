@@ -1,0 +1,30 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <p class="title-order">Đơn hàng chờ xác nhận</p>
+    <table class="tbl-order table table-striped">
+        <thead>
+            <tr>
+            <th class="order-stt">Stt</th>
+            <th class="order-name">Tên nhân viên</th>
+            <th class="order-number">Số điện thoại</th>
+            <th class="order-total">Giới tính</th>
+            <th class="order-total">Quyền hạn</th>
+            <th class="order-status">Nhiệm vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each staffNhanVien}}
+                <tr class="product">
+                    <th scope="row">{{@index}}</th>
+                    <td class="product-name">{{this.staffName}}</td>
+                    <td class="product-name">{{this.staffPhone}}</td>
+                    <td class="product-name">{{this.staffSex}}</td>
+                    <td>{{this.roleId.roleName}}</td>
+                <td>
+                    <a href="/admin/staffAdmin/staff/detail/{{this._id}}" class="detai-order-status">Sửa</a>&ensp; &ensp;
+                    <a href="/admin/staffAdmin/staff/delete/{{this._id}}" onclick="if (confirm('Bạn có muốn xóa nhân viên ?')){return true;}else{event.stopPropagation(); event.preventDefault();};" data-id="{{this._id}}" title="Link Title" class="detai-order-status">Xóa</a>
+                </td>
+                </tr>
+              {{/each}}
+        </tbody>
+    </table>
+</div>

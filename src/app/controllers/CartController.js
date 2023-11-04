@@ -10,6 +10,7 @@ class CartController {
         });
         res.render('cart',{cart:cart,total:total});
     }
+
     async addCart(req,res,next){
         if(!req.user){
             req.flash('message', 'Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng !!!');
@@ -49,7 +50,7 @@ class CartController {
                 id: product._id,
                 image:product.img,
                 name: product.name_content,
-                price: Number(product.total.replace(',','').replace('.','').replace('.','').replace('.','')),
+                price: product.total,
                 quality:1,
                 description:product.detail
             })

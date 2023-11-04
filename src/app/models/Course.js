@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const Course = new Schema({
     name_content: { type: String},
-    total: { type: String},
+    total: { type: Number},
+    importPrice: { type: Number},
     img: { type: String},
     brand: {type: String},
     quantity: {type: Number},

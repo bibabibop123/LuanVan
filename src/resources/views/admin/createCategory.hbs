@@ -1,0 +1,23 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <p class="title-create">Thêm danh mục sản phẩm</p>
+    <form class="create-form" method="post" action="/admin/createCategory">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+            <div class="col">
+            <div class="form-outline">
+                <label class="form-label" for="form6Example1">Tên danh mục</label>
+                <input type="text" id="form6Example1" class="form-control" value="" name="category_name"/>
+            </div>
+            </div>
+            <div class="col">
+            <div class="form-outline">
+                <label class="form-label" for="form6Example2">Số lượng tạm thời</label>
+                <input type="text" id="form6Example2" class="form-control" value="" name="category_quantity"/>
+            </div>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn-create btn btn-primary btn-block mb-4">Xác nhận</button>
+    </form>
+</div>
