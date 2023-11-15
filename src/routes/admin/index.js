@@ -27,9 +27,15 @@ const createStaffRouter = require('./createStaff');
 const detailCommentRouter = require('./detailComment');
 const createCategoryRouter = require('./createCategory');
 const productsSoldRouter = require('./productsSold');
+const productQualityRouter = require('./productQuality');
+const profitDayRouter = require('./profitDay');
+const detailQualityAdminRouter = require('./detailQuality');
 
 router.use('/login',loginRouter);
+router.use('/detailQuality',detailQualityAdminRouter);
 router.use('/order',orderRouter);
+router.use('/productQuality',productQualityRouter);
+router.use('/profitDay',profitDayRouter);
 router.use('/createCategory',createCategoryRouter);
 router.use('/productsSold',productsSoldRouter);
 router.use('/product-admin',productRouter);

@@ -5,7 +5,7 @@
                 <div class="py-5 text-center">
                     <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
                     <h2>Chi Tiết Đơn Hàng</h2>
-                    <p class="lead">Vui lòng kiểm tra thông tin Khách hàng trước khi xác nhận hoặc hủy đơn hàng</p>
+                    <p class="lead">Đơn hàng đợi xác nhận</p>
                 </div>
 
                 <div class="row">
@@ -69,9 +69,10 @@
                     {{#if (different order.status 'xac_nhan')}}
                          <a href="/admin/detail-order/confirm/{{order._id}}"><button class="btn btn-primary">xác nhận đơn hàng</button></a>
                     {{/if}}
-                    {{!-- {{#if (different order.status 'da_huy')}}
-                         <a href="/admin/detail-order/cancel/{{order._id}}"><button class="btn btn-danger">Hủy</button></a>
-                    {{/if}} --}}
+                    {{#if (different order.status 'da_huy')}}
+                         <a href="/admin/detail-order/cancel/{{order._id}}"><button class="btn btn-danger">Hủy đơn hàng</button></a>
+                    {{/if}}
+                    
                     </div>
                 </div>
         </div>

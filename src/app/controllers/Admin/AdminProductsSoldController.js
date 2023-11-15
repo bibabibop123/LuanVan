@@ -7,7 +7,28 @@ const order = require('../../models/Order');
 class AdminProductsSoldController {
     async productsSold ( req, res, next) {
 
-        const orders = await order.find().lean();
+        const {price, keyword} = req.query;
+
+        const query = {};
+
+        console.log(req.query)
+
+        if (keyword) {
+            query['name']= {$regex: keyword, $options: 'i'}
+            
+        }
+        // const sort = {createdAt: -1};
+        // if(price){
+        //     if(price=='asc'){
+        //         sort['total']= 1;
+        //     }
+        //     else sort['total']= -1;
+            
+        // } 
+
+        const orders = await order.find(query).lean();
+
+        //console.log(orders)
 
         const allProducts = [];
 
@@ -17,50 +38,31 @@ class AdminProductsSoldController {
           }
         }
 
+        // console.log(allProducts)
+
         const productSummary = {};
 
         allProducts.forEach(product => {
-        const { name, quality, price } = product;
+        const { name, quality, price, importPrice } = product;
 
         if (productSummary[name]) {
             productSummary[name].quality += quality;
             productSummary[name].totalPrice += quality * price;
+            productSummary[name].totalImport += quality * importPrice;
         } else {
             productSummary[name] = {
-            quality: quality,
-            totalPrice: quality * price,
+                quality: quality,
+                totalPrice: quality * price,
+                totalImport: quality * importPrice
             };
         }
         });
 
-        const {price, keyword} = req.query;
-
-        const query = {};
-
-        if (keyword) {
-            query['name_content']= {$regex: keyword, $options: 'i'}
-            
-        }
-        const sort = {createdAt: -1};
-        if(price){
-            if(price=='asc'){
-                sort['total']= 1;
-            }
-            else sort['total']= -1;
-            
-        } 
+        console.log(productSummary)
+         const productSummaryArray = Object.entries(productSummary).map(([name, summary]) => ({ name,totalImport: summary.totalPrice - summary.totalImport ,quality: summary.quality, totalPrice: summary.totalPrice }));
 
 
-        const productSummaryArray = Object.entries(productSummary).map(([name, summary]) => ({ name, quality: summary.quality, totalPrice: summary.totalPrice }));
-
-
-        // const filteredProductSummaryArray = productSummaryArray.filter(item => {
-        //     if (query.name_content) {
-        //       const nameContentRegex = new RegExp(query.name_content.$regex, query.name_content.$options);
-        //       return nameContentRegex.test(item.name);
-        //     }
-        //     return true;
-        //   });
+        // console.log(productSummaryArray)
 
 
         return res.render('admin/productsSold', {layout:'admin',productSummaryArray:productSummaryArray});

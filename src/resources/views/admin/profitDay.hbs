@@ -1,0 +1,41 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+
+      <p class="title-order">Lịch sử doanh thu</p>
+      <form action="/admin/profitDay" method="get">
+        <div>
+          <input type="text" name="keyword" class="filter-search" placeholder="tìm tên khách hàng"> &nbsp; &nbsp;
+
+          Từ:&nbsp; &nbsp;<input type="date" id="birthday" name="startDay"> &nbsp; &nbsp; &nbsp; &nbsp;
+
+          Đến: &nbsp; &nbsp;<input type="date" id="birthday" name="endDay">
+
+          <button class="filter-btn" type="submit">Tìm</button>
+        </div>
+      </form>
+
+        <table class="tbl-order table table-striped">
+            <thead>
+                <tr>
+                    <th class="stt">STT</th>
+                    <th class="name-product">Khách hàng</th>
+                    <th class="image-product">Ngày mua</th>
+                    <th class="image-product">Tổng đơn</th>
+                    <th class="image-product">Tổng giá nhập</th>
+                    <th class="total-product">Lợi nhuận</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each calculatedOrders}}
+                  <tr class="product">
+                      <th scope="row">{{@index}}</th>
+                      <td class="text-capitalize product-name">{{this.name}}</td>
+                      <td class="product-name">{{this.createdAt}}</td>
+                      <td style="color: teal;" class="product-name">{{this.total}}</td>
+                      <td style="color:chocolate;" class="product-name">{{this.totalImport}}</td>
+                      <td style="color: brown;" class="product-name"> + {{this.difference}}</td>
+                  </tr>
+                {{/each}}
+            </tbody>
+        </table>  
+</div>

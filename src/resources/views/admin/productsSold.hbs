@@ -5,11 +5,11 @@
         <div>
           <input type="text" name="keyword" class="filter-search" placeholder="tìm sản phẩm">
 
-          <select id="cars" class="select-type" name="price">
+          {{!-- <select id="cars" class="select-type" name="price">
             <option value="" selected>Số lượng</option>
             <option value="asc">Thấp đến cao</option>
             <option value="des">Cao đến thấp</option>
-  			  </select>
+  			  </select> --}}
 
           <button class="filter-btn" type="submit">Tìm</button>
         </div>
@@ -20,8 +20,9 @@
                 <tr>
                     <th class="stt">STT</th>
                     <th class="name-product">Tên sản phẩm</th>
-                    <th class="image-product">Số lượng</th>
-                    <th class="total-product">Tổng</th>
+                    <th class="image-product">Số lượng bán</th>
+                    <th class="total-product">Tổng giá bán</th>
+                    <th class="total-product">Tổng Lợi nhuận</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +31,8 @@
                       <th scope="row">{{@index}}</th>
                       <td class="product-name">{{this.name}}</td>
                       <td class="product-name">{{this.quality}}</td>
-                      <td class="product-name">{{this.totalPrice}}</td>
+                      <td class="product-name">{{formatNumber this.totalPrice}}</td>
+                      <td class="product-name">{{formatNumber this.totalImport}}</td>
                   </tr>
                 {{/each}}
             </tbody>

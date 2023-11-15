@@ -4,9 +4,6 @@
             <form name="frmsanphamchitiet" id="frmsanphamchitiet" method="post" action="">
                 <div class="wrapper row">
                     <div class="preview col-6">
-                        {{!-- <ul class="preview-thumbnail nav nav-tabs">
-                            <img class="detail-img" src="{{courses.img}}" alt="">
-                        </ul> --}}
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -15,17 +12,11 @@
                                 {{#each imageProduct}}
                                 <div class="carousel-item">
                                     <img class="d-block w-100" src="{{this.image1}}" alt="Second slide">
-                                    {{!-- {{#each this}}
-                                        <img class="d-block w-100" src="{{this}}" alt="Slide">
-                                    {{/each}} --}}
                                 </div>
                                 {{/each}}
                                 {{#each imageProduct}}
                                 <div class="carousel-item">
                                     <img class="d-block w-100" src="{{this.image2}}" alt="Second slide">
-                                    {{!-- {{#each this}}
-                                        <img class="d-block w-100" src="{{this}}" alt="Slide">
-                                    {{/each}} --}}
                                 </div>
                                 {{/each}}
                             </div>
@@ -49,9 +40,10 @@
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
                             </div>
+                            <br>
                             <span class="review-no font-weight-bold"> {{courses.likeNumber}} lượt thích</span>
                         </div>
-                        <h4 class="price">Giá hiện tại: <span>{{courses.total}}</span></h4>
+                        <h4 class="price">Giá hiện tại: <span>{{formatNumber courses.total}}</span></h4>
                         <span class="quantity">Số lượng còn: {{courses.quantity}}</span>
                         <p></p>
                         <p class="vote"><strong>100%</strong> hàng <strong>Chất lượng</strong>, đảm bảo
@@ -64,10 +56,6 @@
 
                         <div class="action">
                             <a class="add-to-cart btn" id="btnThemVaoGioHang" href="/cart/add-cart/{{courses._id}}">Thêm vào giỏ hàng</a>
-                            {{!-- <a class="like btn" id="btnLike" href="/detail/like/{{courses._id}}"><span><i class="fa-regular fa-heart"></i></span></a> --}}
-                            {{!-- <form action="/detail/like/{{courses._id}}" method="post">
-                                <button type="submit" class="like btn"><i class="fa-regular fa-heart"></i></button>
-                            </form> --}}
                             <a class="add-to-cart btn" id="btnThemVaoGioHang" href="/detail/like/{{courses._id}}"><i class="fa-regular fa-thumbs-up"></i></a>
                         </div>
                     </div>
@@ -76,7 +64,11 @@
             </form>
         </div>
     </div>
+
+
     <br><br>
+
+
     <div class="detail">
         {{#each detailProduct}}
             <span class="textDetail">{{this.detailTop}}</span>
@@ -99,14 +91,28 @@
             </form>
             {{#each comments}}
                     <p class="nameCmt">{{this.username}}</p>
-                    <span class="cotentCmt">{{this.content}}</span>
-                    <hr width="90%" class="px-3">
-                    {{!-- {{#if user}}
+                    <span class="cotentCmt ml-4">{{this.content}}</span>
+                                        {{!-- {{#if user}}
                         <p>chỉnh sửa</p>
                     {{/if}} --}}
+                    <hr width="90%" class="px-3">
             {{/each}}
         </table>
     </div>
 </div>
+
+<style>
+    .mt-4, .my-4 {
+        margin-top: 5.5rem!important;
+    }
+
+    .container {
+        width: 90% !important;
+    }
+
+    .details {
+        background-color: #EEEEEE !important;
+    }
+</style>
 
 

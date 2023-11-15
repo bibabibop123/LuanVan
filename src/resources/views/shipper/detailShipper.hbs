@@ -79,22 +79,9 @@
                     {{#if (different order.status 'dang_van_chuyen')}}
                          <a href="/shipper/detailShipper/confirm/{{order._id}}"><button class="btn btn-primary">Nhận đơn hàng</button></a>
                     {{/if}}
-                    {{!-- {{#if (different order.status 'huy_van_chuyen')}}
-                         <a href="/shipper/detailShipper/cancel/{{order._id}}"><button class="btn btn-danger">Hủy</button></a>
-                    {{/if}} --}}
-                    {{!-- <button id="openPopup">Mở Form Pop-up</button>
-
-                        <div id="popupForm" class="popup">
-                            <form>
-                                <h2>Form Pop-up</h2>
-                                <input type="text" placeholder="Tên">
-                                {{#if (different order.status 'huy_van_chuyen')}}
-                                    <a href="/shipper/detailShipper/cancel/{{order._id}}"><button class="btn btn-danger">Hủy</button></a>
-                                {{/if}}
-                                <button type="button" id="closePopup">Đóng</button>
-                            </form>
-                        </div>
-                    </div> --}}
+                    {{#if (different order.status 'huy_van_chuyen')}}
+                         <a href="/shipper/detailShipper/cancel/{{order._id}}"><button class="btn btn-danger">Hủy nhận đơn</button></a>
+                    {{/if}}
                 </div>
         </div>
         <!-- End block content -->

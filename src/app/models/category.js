@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const Category = new Schema({
     category_name: { type: String},
     category_quantity: {type: Number},
+    categoryTotalImport: {type: Number},
+    categoryTotalExport: {type: Number},
   }, {
     timestamps: true,
   });

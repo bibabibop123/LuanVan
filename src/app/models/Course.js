@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 const Course = new Schema({
     name_content: { type: String},
-    total: { type: Number},
-    importPrice: { type: Number},
+    total: { type: Number,default:0},
+    importPrice: { type: Number,default:0},
     img: { type: String},
     brand: {type: String},
-    quantity: {type: Number},
+    quantity: {type: Number,default:0},
     detail: { type: String},
     categoryId: {type: Schema.Types.ObjectId, ref: 'category'},
     likeNumber: {type: Number,default:0},

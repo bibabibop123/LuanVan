@@ -1,0 +1,70 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+
+      <p class="title-order">Sản phẩm</p>
+      <form action="/admin/productQuality" method="get">
+        <div>
+          <input type="text" name="keyword" class="filter-search" placeholder="tìm sản phẩm">
+
+          <select class="select-type" name="categoryId" id="categoryId">
+            <option value="" selected>Loại</option>
+            {{#each categoryList}}
+              <option id="categoryId" value="{{this._id}}">{{this.category_name}}</option>
+            {{/each}}
+          </select>
+
+        <select id="cars" class="select-type" name="importPrice">
+            <option value="" selected>Giá sản phẩm</option>
+            <option value="asc">Thấp đến cao</option>
+            <option value="des">Cao đến thấp</option>
+  		</select>
+
+        <select id="cars" class="select-type" name="quantity">
+            <option value="" selected>Số lượng</option>
+            <option value="asc">Thấp đến cao</option>
+            <option value="des">Cao đến thấp</option>
+  		</select>
+
+          <button class="filter-btn" type="submit">Tìm</button>
+        </div>
+      </form>
+    
+        <table class="tbl-order table table-striped">
+            <thead>
+                <tr>
+                <th class="stt">STT</th>
+                <th class="name-product">Tên sản phẩm</th>
+                <th class="detail-product">Loại</th>
+                <th class="brand-product">Giá bán</th>
+                <th class="brand-product">Giá nhập</th>
+                <th class="brand-product">Số lượng</th>
+                <th class="edit-product">Xác nhận</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                  <tr class="product">
+                      <th scope="row">{{@index}}</th>
+                      <td class="product-name">{{this.name_content}}</td>
+                      <td>{{this.categoryId.category_name}}</td>
+                      <td>{{formatNumber this.total}}</td>
+                      {{#if this.importPrice}}
+                        <td>{{formatNumber importPrice}}</td>
+                        {{else}}
+                            <td>0</td>
+                      {{/if}}
+
+                      {{#if this.quantity}}
+                        <td>{{formatNumber quantity}}</td>
+                        {{else}}
+                            <td>0</td>
+                      {{/if}}
+                        <td>
+                            <a href="/admin/productQuality/detail/{{this._id}}">Chi tiết</a>
+                        </td>
+                  </tr>
+                {{/each}}
+            </tbody>
+        </table>
+</div>
+
+{{!--  --}}

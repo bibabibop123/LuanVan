@@ -109,17 +109,17 @@
             </li>
 
             {{else if (equal staff.roleId.roleType 5)}}
-                <li class="nav-title">Kho hàng</li>
+                <li class="nav-title">Sản phẩm</li>
                 <li class="nav-item"><a class="nav-link" href="/admin/product-admin/">
                   <svg class="nav-icon">
                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
                   </svg>Sản phẩm</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="/admin/productsSold/">
+                {{!-- <li class="nav-item"><a class="nav-link" href="/admin/productsSold/">
                   <svg class="nav-icon">
                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
                   </svg>Sản phẩm đã bán</a>
-                </li>
+                </li> --}}
                 <li class="nav-item"><a class="nav-link" href="/admin/create-admin/">
                   <svg class="nav-icon">
                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
@@ -138,6 +138,48 @@
             {{else}}
         {{/if}}
 
+
+
+
+
+        
+        {{#if (equal  staff.roleId.roleType 4)}}
+          <li class="nav-title">Kho hàng</li>
+            <li class="nav-item"><a class="nav-link" href="/admin/productQuality/">
+              <svg class="nav-icon">
+                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+              </svg>Sản phẩm</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/admin/productsSold/">
+              <svg class="nav-icon">
+                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+              </svg>Sản phẩm đã bán</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/admin/category-admin/">
+              <svg class="nav-icon">
+                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+              </svg>Danh mục sản phẩm</a>
+            </li>
+
+            {{else if (equal staff.roleId.roleType 5)}}
+                <li class="nav-title">Kho hàng</li>
+                <li class="nav-item"><a class="nav-link" href="/admin/productQuality/">
+                  <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+                  </svg>Sản phẩm</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="/admin/productsSold/">
+                  <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+                  </svg>Sản phẩm đã bán</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="/admin/category-admin/">
+                  <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+                  </svg>Danh mục sản phẩm</a>
+                </li>
+            {{else}}
+        {{/if}}
 
 
 

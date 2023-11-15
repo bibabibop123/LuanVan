@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
+const { adminAuthentication } = require('../../common/authen');
 const admincreateController = require('../../app/controllers/Admin/AdminCreateController');
 
-router.get('/', admincreateController.adminCreate );
+router.get('/', adminAuthentication,  admincreateController.adminCreate );
 
 router.post('/', admincreateController.adminPost)
 

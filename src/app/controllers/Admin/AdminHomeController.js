@@ -1,24 +1,45 @@
 const Course = require('../../models/Course');
 const Order = require('../../models/Order');
+const moment = require('moment');
 const { PaymentStatus } = require('../../../config/enum.config');
 
 class AdminHomeController {
     async home ( req, res, next) {
         const products = await Course.find().lean();
-        const order = await Order.find({status:PaymentStatus.xac_nhan}).lean();
+        const order = await Order.find({ paymentMethod: 'cod'}).lean();
+
+
+        const orderOnline = await Order.find({
+          $or: [
+            { paymentMethod: 'paypal' },
+            { paymentMethod: 'atm' }
+          ]
+        }).lean();
+
+        let totalOnline = 0;
+        for (const orderItem of orderOnline) {
+          totalOnline += orderItem.total;
+        }
+        const totalOnlineFormat = totalOnline.toLocaleString('en-US');
+        // console.log(totalOnline)
+
+
         const course = await Course.find().lean();
         const courseNumber = course.length;
         // console.log(courseNumber)
-        const numberOfOrders = order.length;
+        const numberOfOrder = await Order.find({status:PaymentStatus.hoan_thanh}).lean();
+        const numberOfOrders = numberOfOrder.length;
         let totalAmount = 0;
 
         for (const orderItem of order) {
-        totalAmount += orderItem.total;
+          totalAmount += orderItem.total;
         }
+
+        const totalAmountFormat = totalAmount.toLocaleString('en-US');
 
 
         // ĐƠN HÀNG THEO NGÀY
-        const orderDay = await Order.find({status:PaymentStatus.xac_nhan}).lean();
+        const orderDay = await Order.find({ status: { $in: [PaymentStatus.xac_nhan,PaymentStatus.dang_van_chuyen, PaymentStatus.hoan_thanh] } }).lean();
         const today = new Date();
         let totalForToday = 0;
         
@@ -31,13 +52,16 @@ class AdminHomeController {
               createdAtDate.getMonth() === today.getMonth() &&
               createdAtDate.getFullYear() === today.getFullYear()
             ) {
-                totalForToday += order.total;
+                totalForToday += order.total - order.totalImport;
             }
           }
         });
 
+        const totalForTodayFormat = totalForToday.toLocaleString('en-US');
 
-        const orderTotal = await Order.find({status:PaymentStatus.hoan_thanh}).lean();
+
+        // const orderTotal = await Order.find({status:PaymentStatus.hoan_thanh}).lean();
+        const orderTotal = await Order.find({ status: { $in: [PaymentStatus.xac_nhan, PaymentStatus.hoan_thanh] } }).lean();
         
         // ĐƠN HÀNG THEO THÁNG
         const currentDate = new Date(); 
@@ -46,10 +70,12 @@ class AdminHomeController {
 
         const totalInMonth = orderTotal.reduce((total, order) => {
         if (order.createdAt >= startDate && order.createdAt <= endDate) {
-            return total + order.total;
+            return total += order.total - order.totalImport;
         }
         return total;
         }, 0);
+
+        const totalInMonthFormat = totalInMonth.toLocaleString('en-US');
 
 
 
@@ -61,7 +87,9 @@ class AdminHomeController {
             const orderDate = new Date(order.createdAt);
             return orderDate.getFullYear() === currentYear;
           })
-          .reduce((acc, order) => acc + order.total, 0);
+          .reduce((acc, order) => acc + order.total - order.totalImport, 0);
+
+          const totalForCurrentYearFormat = totalForCurrentYear.toLocaleString('en-US');
         
         
 
@@ -69,30 +97,61 @@ class AdminHomeController {
         let totalSum = 0;
         orderTotal.forEach(order => {
           if (order.total) {
-            totalSum += order.total;
+            totalSum += order.total - order.totalImport;
           }
         });
 
-        const orders = await Order.find({status:PaymentStatus.hoan_thanh}).lean();
+        const totalSumFormat = totalSum.toLocaleString('en-US');
 
 
+
+        
+        // Từng năm
+        const {year} = req.query;
+        const query = {status: PaymentStatus.hoan_thanh};
+        if (year) {
+          // Assuming createdAt is a date field, and you want to filter by the entire year
+          const startOfYear = moment(year, 'YYYY').startOf('year');
+          const endOfYear = moment(year, 'YYYY').endOf('year');
+        
+          query['createdAt'] = {
+            $gte: startOfYear.toDate(),
+            $lte: endOfYear.toDate(),
+          };
+        }else {
+          // Assuming createdAt is a date field, and you want to filter by the entire year
+          const startOfYear = moment().startOf('year');
+          const endOfYear = moment().endOf('year');
+        
+          query['createdAt'] = {
+            $gte: startOfYear.toDate(),
+            $lte: endOfYear.toDate(),
+          };
+        }
+        // console.log(req.query)
+        const orders = await Order.find(query).lean();
+        // console.log('orders',orders)
+  
         //tháng 1
         let totalOfMonth1 = 0;
         const ordersThisYearAndMonth1 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 0;
+          // console.log(orderDate)
+          return orderDate.getMonth() === 0;
         });
+
+        // console.log(ordersThisYearAndMonth1)
         for (const order of ordersThisYearAndMonth1) {
           totalOfMonth1 += order.total;
         }
         // console.log('Tổng total của tháng 1 trong năm nay:', totalOfMonth1);
 
 
-        //Tháng 2
+        // Tháng 2
         let totalOfMonth2 = 0;
         const ordersThisYearAndMonth2 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 1;
+          return orderDate.getMonth() === 1;
         });
 
         for (const order of ordersThisYearAndMonth2) {
@@ -106,7 +165,7 @@ class AdminHomeController {
         let totalOfMonth3 = 0;
         const ordersThisYearAndMonth3 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 2;
+          return  orderDate.getMonth() === 2;
         });
 
         for (const order of ordersThisYearAndMonth3) {
@@ -121,7 +180,7 @@ class AdminHomeController {
         let totalOfMonth4 = 0;
         const ordersThisYearAndMonth4 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 3;
+          return orderDate.getMonth() === 3;
         });
 
         for (const order of ordersThisYearAndMonth4) {
@@ -135,7 +194,7 @@ class AdminHomeController {
         let totalOfMonth5 = 0;
         const ordersThisYearAndMonth5 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 4;
+          return orderDate.getMonth() === 4;
         });
 
         for (const order of ordersThisYearAndMonth5) {
@@ -149,7 +208,7 @@ class AdminHomeController {
         let totalOfMonth6 = 0;
         const ordersThisYearAndMonth6 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 5;
+          return orderDate.getMonth() === 5;
         });
 
         for (const order of ordersThisYearAndMonth6) {
@@ -164,7 +223,7 @@ class AdminHomeController {
         let totalOfMonth7 = 0;
         const ordersThisYearAndMonth7 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 6;
+          return orderDate.getMonth() === 6;
         });
 
         for (const order of ordersThisYearAndMonth7) {
@@ -179,7 +238,7 @@ class AdminHomeController {
         let totalOfMonth8 = 0;
         const ordersThisYearAndMonth8 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 7;
+          return orderDate.getMonth() === 7;
         });
 
         for (const order of ordersThisYearAndMonth8) {
@@ -194,7 +253,7 @@ class AdminHomeController {
         let totalOfMonth9 = 0;
         const ordersThisYearAndMonth9 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 8;
+          return orderDate.getMonth() === 8;
         });
 
         for (const order of ordersThisYearAndMonth9) {
@@ -209,7 +268,7 @@ class AdminHomeController {
         let totalOfMonth10 = 0;
         const ordersThisYearAndMonth10 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 9;
+          return orderDate.getMonth() === 9;
         });
 
         for (const order of ordersThisYearAndMonth10) {
@@ -224,7 +283,7 @@ class AdminHomeController {
         let totalOfMonth11 = 0;
         const ordersThisYearAndMonth11 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 10;
+          return orderDate.getMonth() === 10;
         });
 
         for (const order of ordersThisYearAndMonth11) {
@@ -239,14 +298,12 @@ class AdminHomeController {
         let totalOfMonth12 = 0;
         const ordersThisYearAndMonth12 = orders.filter(order => {
           const orderDate = new Date(order.createdAt);
-          return orderDate.getFullYear() === currentYear && orderDate.getMonth() === 11;
+          return orderDate.getMonth() === 11;
         });
 
         for (const order of ordersThisYearAndMonth12) {
           totalOfMonth12 += order.total;
         }
-
-        // console.log('Tổng total của tháng 12 trong năm nay:', totalOfMonth12);
 
 
         // Thống kê đánh giá
@@ -258,11 +315,11 @@ class AdminHomeController {
         const evaluateGood = ordersWithGoodEvaluation.length;
         const evaluateNotGood = ordersWithNotGoodEvaluation.length;
         
-        return res.render('admin/home', {layout:'admin', totalSum:totalSum, totalForCurrentYear:totalForCurrentYear, totalInMonth:totalInMonth, totalForToday:totalForToday, products:products,courseNumber:courseNumber, totalAmount:totalAmount, numberOfOrders:numberOfOrders,
-          totalOfMonth1:totalOfMonth1, totalOfMonth2:totalOfMonth2, totalOfMonth3:totalOfMonth3, totalOfMonth4:totalOfMonth4,
+        return res.render('admin/home', {layout:'admin', totalSumFormat:totalSumFormat, totalForCurrentYearFormat:totalForCurrentYearFormat, totalInMonthFormat:totalInMonthFormat, totalForTodayFormat:totalForTodayFormat, products:products,courseNumber:courseNumber, totalAmountFormat:totalAmountFormat, numberOfOrders:numberOfOrders,
+        totalOfMonth1:totalOfMonth1, totalOfMonth2:totalOfMonth2, totalOfMonth3:totalOfMonth3, totalOfMonth4:totalOfMonth4,
           totalOfMonth5:totalOfMonth5, totalOfMonth6:totalOfMonth6, totalOfMonth7:totalOfMonth7, totalOfMonth8:totalOfMonth8,
           totalOfMonth9:totalOfMonth9, totalOfMonth10:totalOfMonth10, totalOfMonth11:totalOfMonth11, totalOfMonth12:totalOfMonth12,
-          evaluateGood:evaluateGood, evaluateNotGood:evaluateNotGood
+          evaluateGood:evaluateGood, evaluateNotGood:evaluateNotGood, totalOnlineFormat:totalOnlineFormat
         });
     }
 

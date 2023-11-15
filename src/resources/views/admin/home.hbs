@@ -19,8 +19,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Thu Nhập (COD)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalAmount}} $</div>
+                                                Doanh thu (COD)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalAmountFormat}} </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -37,8 +37,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Thu Nhập (Paypal & QR)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Doanh thu (Paypal & QR)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalOnlineFormat}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -75,7 +75,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Số lượng đơn hàng</div>
+                                                Lượng đơn hoàn thành</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{numberOfOrders}}</div>
                                         </div>
                                         <div class="col-auto">
@@ -91,11 +91,13 @@
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div style="color:teal;" class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Thu nhập (Ngày)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalForToday}}</div>
-                                        </div>
+                                        <a href="profitDay">
+                                            <div class="col mr-2">
+                                                <div style="color:teal;" class="text-xs font-weight-bold text-uppercase mb-1">
+                                                    Doanh thu trong ngày</div>
+                                                <div style="color: black;" class="h5 mb-0 font-weight-bold text-gray-800">{{totalForTodayFormat}}</div>
+                                            </div>
+                                        </a>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
                                         </div>
@@ -109,11 +111,13 @@
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
+                                        <a href="profitDay">
                                         <div class="col mr-2">
                                             <div style="color: coral;" class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Thu nhập (Tháng)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalInMonth}}</div>
+                                                Doanh thu trong tháng</div>
+                                            <div style="color: black;" class="h5 mb-0 font-weight-bold text-gray-800">{{totalInMonthFormat}}</div>
                                         </div>
+                                        </a>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
                                         </div>
@@ -129,8 +133,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div style="color: cadetblue;" class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Thu nhập (Năm)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalForCurrentYear}}</div>
+                                                Doanh thu trong năm</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalForCurrentYearFormat}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -148,8 +152,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div style="color: crimson;" class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Tổng các đơn hàng</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalSum}}</div>
+                                                Tổng doanh thu</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalSumFormat}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -165,19 +169,24 @@
                     <div class="row">
 
                         <!-- Area Chart -->
+                        <form action="/admin/" method="get">
                         <div class="col-xl-12 col-lg-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Tổng quan thu nhập</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Tổng quan thu nhập (Năm): &nbsp; &nbsp;
+                                            <input type="number" min="1900" max="2099" step="1" name="year" id="yearInput" /> &nbsp;
+                                            <button type="submit">Tìm</button>
+                                        </h6>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
+                               
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
@@ -185,6 +194,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
 
@@ -232,75 +242,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Color System -->
-                            <div class="row">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-primary text-white shadow">
-                                        <div class="card-body">
-                                            Primary
-                                            <div class="text-white-50 small">#4e73df</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-success text-white shadow">
-                                        <div class="card-body">
-                                            Success
-                                            <div class="text-white-50 small">#1cc88a</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-info text-white shadow">
-                                        <div class="card-body">
-                                            Info
-                                            <div class="text-white-50 small">#36b9cc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-warning text-white shadow">
-                                        <div class="card-body">
-                                            Warning
-                                            <div class="text-white-50 small">#f6c23e</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-danger text-white shadow">
-                                        <div class="card-body">
-                                            Danger
-                                            <div class="text-white-50 small">#e74a3b</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-secondary text-white shadow">
-                                        <div class="card-body">
-                                            Secondary
-                                            <div class="text-white-50 small">#858796</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-light text-black shadow">
-                                        <div class="card-body">
-                                            Light
-                                            <div class="text-black-50 small">#f8f9fc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-dark text-white shadow">
-                                        <div class="card-body">
-                                            Dark
-                                            <div class="text-white-50 small">#5a5c69</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
                         <div class="col-lg-6 mb-4">
@@ -314,20 +255,6 @@
                                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                                 </div>
                             </div>
-
-                            <!-- Approach -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                        custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -336,7 +263,34 @@
     </div>
   </div>
 
+  <style>
+    a {
+        text-decoration: none;
+    }
+
+    label {
+    display: block;
+    font:
+        1rem 'Fira Sans',
+        sans-serif;
+    }
+
+    input,
+    label {
+    margin: 0.4rem 0;
+    }
+  </style>
+
 <script>
+    // Get the current year
+    const currentYear = new Date().getFullYear();
+
+    // Set the value of the input to the current year
+    document.getElementById('yearInput').value = currentYear;
+</script>
+
+<script>
+
     const data = {
         labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5   ", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
         datasets: [
@@ -365,7 +319,6 @@
     });
 
 </script>
-
 
   
 <script>

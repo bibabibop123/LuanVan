@@ -64,13 +64,20 @@ class PaymentController {
             return res.redirect('/');
         }
         let total =0;
+        let totalImport = 0;
         cart.forEach(element => {
             total += element.price * element.quality;
         });
+
+        cart.forEach(element => {
+            totalImport += element.importPrice * element.quality;
+        });
+
+        console.log(totalImport)
         
         const quantities = cart.map(item => item.quality);
         const totalQuantity = quantities.reduce((acc, current) => acc + current, 0);
-        const order = await OrderModel.create({...req.body,total,totalQuantity,products:cart,user:req.user._id,addressId:req.body.addressnew});
+        const order = await OrderModel.create({...req.body,totalImport,total,totalQuantity,products:cart,user:req.user._id,addressId:req.body.addressnew});
         const products = await Promise.all(req.session.cart.map((item)=>{
             return Course.findByIdAndUpdate(item.id,{$inc:{quantity:-item.quality}})
         }))

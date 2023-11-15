@@ -7,7 +7,7 @@ const city = require('../../../raw.githubusercontent.com_kenzouno1_DiaGioiHanhCh
 class AdminDetailComfirmController {
     async adminDetailComfirm ( req, res, next) {
         console.log(req.body.shipper)
-        const order = await Order.findById(req.params.id).populate('addressId').lean();
+        const order = await Order.findById(req.params.id).populate('addressId').populate('staffId').lean();
         const staffShip = await StaffShip.find(req.params).lean();
         let listAddress = order.addressId;
         

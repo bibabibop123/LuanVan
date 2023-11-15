@@ -187,9 +187,9 @@
   color: white !important;
 }
 
-.navbar-nav {
-  margin-left: 68% !important;
-}
+// .navbar-nav {
+//   margin-left: 68% !important;
+// }
 
 .dropdown-menu {
   background-color: black !important;
@@ -228,6 +228,10 @@
   background-color: orange;
 }
 
+.mt-4 {
+  margin-top: 5.5rem !important;
+}
+
 .mona_title {
   color: #3c3451;
   font-weight: bold;
@@ -237,6 +241,7 @@
   clear: both;
   font-family: 'Roboto Slab', serif;
   margin-top: 20px;
+  margin-bottom: 100px !important;
 }
 
 img {
@@ -264,6 +269,7 @@ p {
 
 .navbar {
     height: 100px;
+    width: 100%;
     font-size: 25px;
     // background-image: url(https://i.pinimg.com/736x/19/6a/87/196a876bd94c90b38b2fae20602449eb.jpg);
     background-color: black;
@@ -415,7 +421,7 @@ p{
 
 footer {
     background-color: black;
-    height: 160px;
+    height: 250px;
     font-size: 17px;
 }
 
@@ -554,7 +560,7 @@ img {
 
   span {
     padding-left: 0.15em;
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }
 
@@ -1204,6 +1210,49 @@ table {
   margin-top: 50px;
   margin-left: 30px;
 }
+
+
+
+
+
+/* Style cho header */
+#myHeader {
+  color: #fff; /* Màu chữ */
+  //padding: 20px; /* Khoảng cách nội dung */
+  position: fixed; /* Giữ header cố định trên đỉnh trang */
+  width: 100%; /* Chiều rộng */
+  transition: top 0.3s; /* Hiệu ứng chuyển động khi thay đổi top */
+  z-index: 1000; /* Đặt lớp vị trí cho header */
+  transition: background-color 0.3s; /* Hiệu ứng chuyển đổi màu nền */
+}
+
+/* Style cho phần tử spacer */
+.spacer {
+  height: 80px; /* Chiều cao tương đương với header */
+}
+/* Style mặc định cho header */
+.default {
+  background-color: rgba(0, 0, 0, 0.3); /* Header trong suốt ở trạng thái mặc định */
+}
+
+/* Style khi cuộn trang */
+.scrolled {
+  background-color: #333; /* Thay đổi màu nền khi cuộn trang */
+}
+
+video {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

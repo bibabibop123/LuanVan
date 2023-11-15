@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const admincreatecategoryController = require('../../app/controllers/Admin/AdminCreateCategoryController');
+const { adminAuthentication } = require('../../common/authen');
 
-router.get('/', admincreatecategoryController.adminCreateCategory );
+router.get('/', adminAuthentication,  admincreatecategoryController.adminCreateCategory );
 
 router.post('/', admincreatecategoryController.adminPost)
 

@@ -10,7 +10,7 @@ const PaymentStatus = {
     "huy_van_chuyen":"huy_van_chuyen",
     "dang_van_chuyen":"dang_van_chuyen",
     "hoan_thanh":"hoan_thanh",
-    "da_huy":"da_huy"
+    "da_huy":"da_huy",
 }
 const PaymentMethod = {
     code:"cod",

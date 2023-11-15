@@ -8,6 +8,7 @@ const path = require("path");
 const Course = require("./app/models/Course");
 const Category = require("./app/models/category");
 const paypal = require('paypal-rest-sdk')
+const moment = require('moment');
 const { paymentStatusConverString, listCityData, listDistrictData, listWardsData } = require("./config/enum.config");
 const app = express();
 
@@ -61,6 +62,14 @@ app.use(
   })
 );
 
+const formatNumber = (number) => {
+  return number.toLocaleString('vi-VN'); // Việt Nam locale hoặc định dạng số theo yêu cầu của bạn
+};
+
+const formatDate = (date) =>{
+  return moment(date).format('DD/MM/YYYY'); // Định dạng theo yêu cầu của bạn
+};
+
 // Template engine
 app.engine(
   "hbs",
@@ -75,6 +84,8 @@ app.engine(
       //   console.log(a,b);
       //   return a?.toString()==b?.toString()?"selected":""
       // },
+      formatNumber: formatNumber,
+      formatDate: formatDate,
       different :(a,b)=>a!=b,
       paymentStatusConverString: paymentStatusConverString,
       listCityData: listCityData(),
@@ -116,9 +127,9 @@ app.get("/", async (req, res, next) => {
   const maleCategory = await Category.findOne({ category_name: "male" })
   const femaleCategory = await Category.findOne({ category_name: "female" })
   const coupleCategory = await Category.findOne({ category_name: "couple" })
-  const array_male = await Course.find({categoryId: maleCategory._id}).limit(8).populate('categoryId').lean();
-  const array_female = await Course.find({categoryId: femaleCategory._id}).limit(8).populate('categoryId').lean();
-  const array_couple = await Course.find({categoryId:coupleCategory._id}).limit(4).populate('categoryId').lean();
+  const array_male = await Course.find({categoryId: maleCategory._id}).sort({ createdAt: -1 }).limit(8).populate('categoryId').lean();
+  const array_female = await Course.find({categoryId: femaleCategory._id}).sort({ createdAt: -1 }).limit(8).populate('categoryId').lean();
+  const array_couple = await Course.find({categoryId:coupleCategory._id}).sort({ createdAt: -1 }).limit(4).populate('categoryId').lean();
   // console.log('res.locals',array_couple);
 
   return res.render("home", {

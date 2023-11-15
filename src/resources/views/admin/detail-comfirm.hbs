@@ -6,7 +6,7 @@
                 <div class="py-5 text-center">
                     <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
                     <h2>Chi Tiết Đơn Hàng</h2>
-                    <p class="lead">Vui lòng kiểm tra thông tin Khách hàng trước khi xác nhận hoặc hủy đơn hàng</p>
+                    <p class="lead">Đơn hàng đã được xác nhận</p>
                 </div>
 
                 <div class="row">
@@ -19,14 +19,14 @@
                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div>
                                     <h6 class="my-0">{{this.name}}</h6>
-                                    <small class="text-muted">{{this.price}} x {{this.quality}}</small>
+                                    <small class="text-muted">{{formatNumber this.price}} x {{this.quality}}</small>
                                 </div>
                                 <span class="text-muted">{{multiply this.price this.quality}}</span>
                             </li>
                             {{/each}}
                             <li class="list-group-item d-flex justify-content-between">
                                 <span>Tổng thành tiền</span>
-                                <strong>{{order.total}}</strong>
+                                <strong>{{formatNumber order.total}}</strong>
                             </li>
                         </ul>
                     </div>
@@ -59,7 +59,7 @@
                         <div class="col-md-12">
                             <label for="kh_email">Trạng Thái</label>
                             <input type="text" class="form-control" name="email" id="email"
-                                placeholder="example@ctu.edu.vn" value="{{paymentStatusConverString order.status}}">
+                                placeholder="example@ctu.edu.vn" value="{{paymentStatusConverString order.status}}" disabled>
                         </div>
                         <div class="d-block my-3">
                                  <label for="kh_email">Hình thức thanh toán</label>

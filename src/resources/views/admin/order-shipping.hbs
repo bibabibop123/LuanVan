@@ -23,9 +23,9 @@
                 <tr class="product">
                     <th scope="row">{{@index}}</th>
                     <td class="product-name">{{this.name}}</td>
-                    <td class="product-name">{{this.total}}</td>
+                    <td class="product-name">{{this.phone}}</td>
                     <td class="product-name">{{paymentStatusConverString this.status}}</td>
-                    <td>{{this.total}}</td>
+                    <td>{{formatNumber this.total}}</td>
                 <td>
                     <a href="/admin/detail-shipping/{{this._id}}" class="detai-order-status">Chi tiết</a>
                 </td>

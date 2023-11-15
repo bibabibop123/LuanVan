@@ -50,8 +50,13 @@
                       <th scope="row">{{@index}}</th>
                       <td class="product-name">{{this.name_content}}</td>
                       <td class="product-image"><img src="{{this.img}}" class="product-image"></td>
-                      <td>{{this.total}}</td>
-                      <td>{{this.importPrice}}</td>
+                      <td>{{formatNumber this.total}}</td>
+
+                      {{#if this.importPrice}}
+                        <td>{{formatNumber this.importPrice}}</td>
+                        {{else}}
+                          <td>0</td>
+                      {{/if}}
                       <td>{{this.categoryId.category_name}}</td>
                       <td>{{this.brand}}</td>
                       <td>
@@ -65,13 +70,4 @@
                 {{/each}}
             </tbody>
         </table>  
-                    {{!-- <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-              </nav> --}}
 </div>

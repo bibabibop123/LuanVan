@@ -6,10 +6,14 @@ class AdminCategoryController {
         const categorys = await Category.find().lean();
         const cateogoryData = await Promise.all(categorys.map(async(category)=>{
             let total = 0;
+            let totalSumImport = 0;
+            let totalSumExport = 0;
             const listCourse = await Course.find({categoryId: category._id}).lean();
             listCourse.forEach((category)=>{total += category.quantity});
+            listCourse.forEach((category)=>{totalSumImport += category.importPrice});
+            listCourse.forEach((category)=>{totalSumExport += category.total});
 
-            return {...category,category_quantity: total}
+            return {...category,category_quantity: total, categoryTotalExport: totalSumExport, categoryTotalImport: totalSumImport}
         }))
         // console.log(categorys);
         return res.render('admin/category-admin',{layout:'admin', categorys:cateogoryData});

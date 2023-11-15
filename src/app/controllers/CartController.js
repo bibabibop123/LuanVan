@@ -5,10 +5,12 @@ class CartController {
         const cart = req.session.cart || [];
         // console.log('cart',cart);
         let total = 0;
+        let totalQuantity = 0;
         cart.forEach(element => {
             total += element.price * element.quality;
+            totalQuantity += 1;
         });
-        res.render('cart',{cart:cart,total:total});
+        res.render('cart',{cart:cart,total:total, totalQuantity:totalQuantity});
     }
 
     async addCart(req,res,next){
@@ -26,7 +28,11 @@ class CartController {
         if(coursesQuantity.quantity == 0) {
             req.flash('message', ' sản phẩm đã hết !!!');
             return res.redirect('back');
+        } else if(coursesQuantity.quantity == null) {
+            req.flash('message', ' sản phẩm đang được cập nhật !!!');
+            return res.redirect('back');
         }
+
         const cartExist = cart.find((item)=>item.id ===id);
         if(cartExist){
             let cartNew = cart.map((item)=>{
@@ -52,7 +58,8 @@ class CartController {
                 name: product.name_content,
                 price: product.total,
                 quality:1,
-                description:product.detail
+                description:product.detail,
+                importPrice: product.importPrice
             })
             req.session.cart = cart;
             req.flash('message', ' Thêm sản phẩm thành công vào giỏ hàng !!!');

@@ -3,16 +3,20 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th >STT</th>
+        <th class="text-center">STT</th>
         <th class="text-center">Tên Danh Mục</th>
-        <th class="text-center">Số Lượng</th>
+        <th class="text-center">Tổng giá nhập</th>
+        <th class="text-center">Tổng giá được bán</th>
+        <th class="text-center">Số Lượng còn</th>
       </tr>
     </thead>
     <tbody>
       {{#each categorys}}
         <tr>
-          <th scope="row">{{@index}}</th>
+          <th class="text-center" scope="row">{{@index}}</th>
           <td>{{this.category_name}}</td>
+          <td>{{formatNumber this.categoryTotalImport}}</td>
+          <td>{{formatNumber this.categoryTotalExport}}</td>
           <td>{{this.category_quantity}}</td>
         </tr>
       {{/each}}

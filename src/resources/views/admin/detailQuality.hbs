@@ -1,0 +1,112 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <p class="title-create">Thêm số lượng và giá sản phẩm</p>
+    <form class="create-form" method="post" action="/admin/productQuality/{{courses._id}}">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form6Example1">Tên sản phẩm</label>
+        <input type="text" id="form6Example1" class="form-control" value="{{courses.name_content}}" name="name_content" disabled/>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form6Example2">Số lượng</label>
+        <input type="text" id="form6Example2" class="form-control" value="{{courses.quantity}}" name="quantity"/>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form6Example1">Giá bán</label>
+        <input type="text" id="form6Example1" class="form-control" value="{{courses.total}}" name="total"/>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form6Example2">Giá nhập</label>
+        <input type="text" id="form6Example2" class="form-control" value="{{courses.importPrice}}" name="importPrice" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form6Example3">Hình ảnh 1</label>
+    <input type="text" id="form6Example3" class="form-control" value="{{courses.img}}" name="img" disabled/>
+  </div>
+
+  {{#each imageProduct}}
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example3">Hình ảnh 2</label>
+        <input type="text" id="form6Example3" class="form-control" value="{{this.image1}}" name="image1" disabled/>
+      </div>
+  {{/each}}
+
+  {{#each imageProduct}}
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example3">Hình ảnh 3</label>
+        <input type="text" id="form6Example3" class="form-control" value="{{this.image2}}" name="image2" disabled/>
+      </div>
+  {{/each}}
+
+    <div class="row mb-4">
+      <div class="col">
+        <div class="form-outline">
+          <label class="form-label" for="form6Example1">Loại sản phẩm:</label>
+          <select class="select-create form-control" name="categoryId" disabled>
+              {{#each categoryData}}
+                  <option value="{{this._id}}">{{this.category_name}}</option>
+              {{/each}}
+          </select>
+        </div>
+      </div>
+
+      {{!-- <div class="col">
+        <div class="form-outline">
+          <label class="form-label" for="form6Example1">Số lượng:</label>
+            <input type="text" id="form6Example1" class="form-control with" value="{{courses.quantity}}" name="quantity"/>
+        </div>
+      </div> --}}
+
+      <div class="col">
+        <div class="form-outline">
+          <label class="form-label" for="form6Example2">Thương hiệu: </label>
+          <select class="select-create form-control" name="brand" disabled>
+              <option value="olym"  class="form-control" {{#if (equal courses.brand "olym")}} selected {{/if}}>olym</option>
+              <option value="casio"  class="form-control" {{#if (equal courses.brand "casio")}} selected {{/if}}>casio</option>
+              <option value="citizen"  class="form-control" {{#if (equal courses.brand "citizen")}} selected {{/if}}>citizen</option>
+              <option value="tissot"  class="form-control" {{#if (equal courses.brand "tissot")}} selected {{/if}}>tissot</option>
+              <option value="hublot"  class="form-control" {{#if (equal courses.brand "hublot")}} selected {{/if}}>hublot</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+  <!-- Message input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form6Example7">Mô tả sản phẩm nhanh</label>
+    <textarea class="form-control" id="form6Example7" rows="4" value="" name="detail" disabled>{{courses.detail}}</textarea>
+  </div>
+
+  {{#each detailProduct}}
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form6Example7">Chi tiết mô tả sản phẩm</label>
+      <textarea class="form-control" id="form6Example7" rows="4" value="" name="detail1" disabled>{{this.detailTop}}</textarea>
+    </div>
+  {{/each}}
+
+  {{#each detailProduct}}
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form6Example7">Chi tiết mô tả sản phẩm</label>
+      <textarea class="form-control" id="form6Example7" rows="4" value="" name="detail2" disabled>{{this.detailBot}}</textarea>
+    </div>
+  {{/each}}
+
+  <!-- Submit button -->
+  <button type="submit" class="btn-create btn btn-primary btn-block mb-4">Sửa sản phẩm</button>
+</form>
+</div>

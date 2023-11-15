@@ -16,7 +16,7 @@
                 <th scope="row">{{@index}}</th>
                 <td>{{this.name}}</td>
                 <td>{{this.products.length}}</td>
-                <td>{{this.total}}</td>
+                <td>{{formatNumber this.total}}</td>
                 <td>
                     <a href="/admin/detail-cancel/{{this._id}}" class="detai-order-status">Chi tiết</a>
                 </td>

@@ -7,7 +7,7 @@ const city = require('../../../raw.githubusercontent.com_kenzouno1_DiaGioiHanhCh
 class AdminDetailCancelController {
     async adminDetailCancel ( req, res, next) {
         // console.log(req.body)
-        const order = await Order.findById(req.params.id).populate('addressId').lean();
+        const order = await Order.findById(req.params.id).populate('addressId').populate('staffShip').lean();
         const staffShip = await StaffShip.find(req.params).lean();
         let listAddress = order.addressId;
         // console.log('staffShip', staffShip);

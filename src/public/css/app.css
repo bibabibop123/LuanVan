@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .input-group {
   display: flex !important;
   align-items: center !important;
@@ -151,9 +152,6 @@
 .nav-link {
   color: white !important; }
 
-.navbar-nav {
-  margin-left: 68% !important; }
-
 .dropdown-menu {
   background-color: black !important; }
 
@@ -183,6 +181,9 @@
   line-height: 250px;
   background-color: orange; }
 
+.mt-4 {
+  margin-top: 5.5rem !important; }
+
 .mona_title {
   color: #3c3451;
   font-weight: bold;
@@ -191,7 +192,8 @@
   text-transform: uppercase;
   clear: both;
   font-family: 'Roboto Slab', serif;
-  margin-top: 20px; }
+  margin-top: 20px;
+  margin-bottom: 100px !important; }
 
 img {
   height: 70%;
@@ -214,6 +216,7 @@ body, html {
 
 .navbar {
   height: 100px;
+  width: 100%;
   font-size: 25px;
   background-color: black;
   color: white !important;
@@ -339,7 +342,7 @@ p {
 
 footer {
   background-color: black;
-  height: 160px;
+  height: 250px;
   font-size: 17px; }
 
 footer .row {
@@ -445,7 +448,7 @@ img {
   font-size: 1.2em; }
   .price span {
     padding-left: 0.15em;
-    font-size: 2em; }
+    font-size: 1.5em; }
 
 .intro {
   font-size: 1.5em; }
@@ -905,3 +908,36 @@ table .trOrder {
 .toastify {
   margin-top: 50px;
   margin-left: 30px; }
+
+/* Style cho header */
+#myHeader {
+  color: #fff;
+  /* Màu chữ */
+  position: fixed;
+  /* Giữ header cố định trên đỉnh trang */
+  width: 100%;
+  /* Chiều rộng */
+  transition: top 0.3s;
+  /* Hiệu ứng chuyển động khi thay đổi top */
+  z-index: 1000;
+  /* Đặt lớp vị trí cho header */
+  transition: background-color 0.3s;
+  /* Hiệu ứng chuyển đổi màu nền */ }
+
+/* Style cho phần tử spacer */
+.spacer {
+  height: 80px;
+  /* Chiều cao tương đương với header */ }
+
+/* Style mặc định cho header */
+.default {
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Header trong suốt ở trạng thái mặc định */ }
+
+/* Style khi cuộn trang */
+.scrolled {
+  background-color: #333;
+  /* Thay đổi màu nền khi cuộn trang */ }
+
+video {
+  width: 100%; }

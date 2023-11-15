@@ -1,7 +1,7 @@
 const { PaymentStatus } = require('../../../config/enum.config');
 const Course = require('../../models/Course');
 const Order = require('../../models/Order');
-const StaffShip = require('../../models/staffShip');
+const Staff = require('../../models/staff');
 const address = require('../../models/addressUser');
 const User = require('../../models/user');
 const city = require('../../../raw.githubusercontent.com_kenzouno1_DiaGioiHanhChinhVN_master_data.json_fbclid=IwAR2C1lNSPtkItOSeMoDlQpfr61OA_CmBcXo3t54WW_lQNNDylh5ZUOhO9Mc.json')
@@ -14,11 +14,17 @@ class AdminDetailOrderController {
         // let listAddress = await order.find({addressId: req.address._id}).lean();
         // console.log(order.email)
         let listAddress = order.addressId;
+        // console.log(req.staff)
+
         return res.render('admin/detail-order',{order:order, listAddress:listAddress,  layout:'admin'});
     }
+
     async adminAcceptOrder(req,res,next){
-        const order = await Order.findById(req.params.id).populate('addressId').lean();
-        await Order.findByIdAndUpdate(req.params.id,{$set:{status:PaymentStatus.xac_nhan}});
+        const order = await Order.findById(req.params.id).populate('addressId').populate('staffId').lean();
+        // console.log(req.staff);
+
+        await Order.findByIdAndUpdate(req.params.id,{staffId:req.staff._id},{$set:{status:PaymentStatus.xac_nhan}});
+        // await Order.create({staffId:req.staff._id})
         const nodemailer = require("nodemailer");
         const transporter = nodemailer.createTransport({
             service:'gmail',
@@ -27,7 +33,7 @@ class AdminDetailOrderController {
             auth: {
               // TODO: replace `user` and `pass` values from <https://forwardemail.net>
               user: "thuhan445566@gmail.com",
-              pass: "rklb ifay wjnf vsvy",
+              pass: "ooug xjmy nxnl ytdx",
             },
           });
 
@@ -43,6 +49,7 @@ class AdminDetailOrderController {
         return res.redirect('/admin/order/');
     }
     async adminCancelOrder(req,res,next){
+        // console.log(req.query)
         await Order.findByIdAndUpdate(req.params.id,{$set:{status:PaymentStatus.da_huy}});
         return res.redirect('/admin/order/');
     }

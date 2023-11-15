@@ -24,7 +24,7 @@ class AdminUserController {
         const orderData = await Promise.all(userData.map(async(user)=>{
             let total = 0;
             let totalNumber = 0;
-            const listOrder = await Order.find({user: user._id, status:PaymentStatus.xac_nhan}).lean();
+            const listOrder = await Order.find({user: user._id, status:PaymentStatus.hoan_thanh}).lean();
             listOrder.forEach((user)=>{total += 1});
             listOrder.forEach((user)=>{totalNumber += user.total});
 

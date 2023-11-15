@@ -15,7 +15,7 @@
             <th class="order-number">Số điện thoại</th>
             <th class="order-total">Email</th>
             <th class="order-total">Tổng đơn hàng</th>
-            <th class="order-total">Tổng tiền</th>
+            <th class="order-total">Tổng hóa đơn</th>
             {{!-- <th class="order-status">Chi tiết đơn hàng</th> --}}
             </tr>
         </thead>
@@ -27,7 +27,7 @@
                     <td class="product-name">{{this.phoneNumber}}</td>
                     <td>{{this.email}}</td>
                     <td>{{this.userOrder}}</td>
-                    <td>{{this.totalNumber}}</td>
+                    <td>{{formatNumber this.totalNumber}}</td>
 
                 </tr>
               {{/each}}
