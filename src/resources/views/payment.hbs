@@ -41,19 +41,12 @@
                             <div class="col-md-12">
                                 <label for="kh_ten">Họ tên</label>
                                 <input type="text" class="form-control" name="name" id="kh_ten" value="{{user.firstName}} {{user.lastName}}"
-                                    placeholder="Họ và tên">
+                                    placeholder="Họ và tên" required>
                             </div> 
                             <br>
                             <div class="col-md-12">
                                 <br>
                                 <label for="address">Địa chỉ</label>
-                                {{!-- <input type="text" class="form-control" name="address" id="address"
-                                    placeholder="Số nhà - Đường - Huyện/Xã -Thành Phố" value="{{user.address}}"> --}}
-                                    {{!-- <select id="addressnew" name="addressnew">
-                                        {{#each listAddress}}
-                                            <option value="{{this._id}}" name="addressnew">{{this.cityName}}, {{this.districtName}}, {{this.wardName}}, {{this.road}}</option>
-                                        {{/each}}
-                                    </select> --}}
                                     <select class="form-select form-control" id="addressnew" name="addressnew" aria-label="Default select example">
                                         {{#each listAddress}}
                                         <option value="{{this._id}}" name="addressnew">{{this.cityName}}, {{this.districtName}}, {{this.wardName}}, {{this.road}}</option>
@@ -66,13 +59,13 @@
                                 <br>
                                 <label for="phone">Điện thoại</label>
                                 <input type="text" class="form-control" name="phone" id="phone"
-                                    placeholder="012345678" value="{{user.phoneNumber}}">
+                                    placeholder="012345678" value="{{user.phoneNumber}}" required>
                             </div>
                             <div class="col-md-12">
                                 <br>
                                 <label for="kh_email">Email</label>
                                 <input type="text" class="form-control" name="email" id="email"
-                                    placeholder="example@ctu.edu.vn" value="{{user.email}}">
+                                    placeholder="example@ctu.edu.vn" value="{{user.email}}" required>
                             </div>
                         </div>
                         <br>

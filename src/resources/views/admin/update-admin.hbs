@@ -59,18 +59,11 @@
           <label class="form-label" for="form6Example1">Loại sản phẩm:</label>
           <select class="select-create form-control" name="categoryId">
               {{#each categoryData}}
-                  <option value="{{this._id}}">{{this.category_name}}</option>
+                  <option value="{{this._id}}" {{#if (equal this._id categoryId)}} selected {{/if}}>{{this.category_name}}</option>
               {{/each}}
           </select>
         </div>
       </div>
-
-      {{!-- <div class="col">
-        <div class="form-outline">
-          <label class="form-label" for="form6Example1">Số lượng:</label>
-            <input type="text" id="form6Example1" class="form-control with" value="{{courses.quantity}}" name="quantity"/>
-        </div>
-      </div> --}}
 
       <div class="col">
         <div class="form-outline">

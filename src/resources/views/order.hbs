@@ -21,11 +21,40 @@
     <div class="tab-item">
       Đã hủy
     </div>
+    {{!-- <div class="tab-item active">
+      Chờ thanh toán
+    </div> --}}
     <div class="line"></div>
   </div>
 
 
+  
+
   <div class="tab-content">
+
+    {{!-- <div class="tab-pane">
+      <table class="tbl-order table table-striped">
+        <tbody>
+          {{#each orders}}
+            {{#if (equal this.status 'doi_thanh_toan')}}
+              <tr>
+                <td>{{this.name}}</td>
+                <td>
+                  {{#each this.products}}
+                    {{this.name}}<br>
+                  {{/each}}<br>
+                </td>
+                <td>{{this.totalQuantity}}</td>
+                <td>{{this.total}}</td>
+                <td><a href="/detailShipping/{{this._id}}">chi tiết</a></td>
+              </tr>
+            {{/if}}
+          {{/each}}
+        </tbody>
+      </table>
+    </div> --}}
+
+
     <div class="tab-pane active">
       <table class="tbl-order table table-striped text-center">
         <tbody class="orderTbl">

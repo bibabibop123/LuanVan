@@ -65,21 +65,8 @@
                                 <input type="text" class="form-control" name="email" id="email"
                                     placeholder="example@ctu.edu.vn" value="{{order.paymentMethod}}" disabled>
                         </div>
-                        <div class="d-block my-3">
-                            <label for="kh_email">Nhân viên giao hàng</label>
-                            <select class="select-create" name="type" disabled>
-                                {{#each staffShip}}
-                                    <option>{{this.staffShipName}}</option>
-                                {{/each}}
-                            </select>
-                        </div>
-                        <hr class="mb-4">
                     
-                         <a href="/detailOrder/cancel/{{order._id}}"><button class="btn btn-primary">Đánh giá</button></a>
-                    
-                    {{!-- {{#if (different order.status 'da_huy')}}
-                         <a href="/admin/detail-order/cancel/{{order._id}}"><button class="btn btn-danger">Hủy</button></a>
-                    {{/if}} --}}
+                        <a class="add-to-cart btn" id="btnThemVaoGioHang" href="/cart/">Mua lại</a>
                     </div>
                 </div>
         </div>

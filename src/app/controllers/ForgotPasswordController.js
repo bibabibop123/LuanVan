@@ -30,7 +30,7 @@ class ForgotPasswordController {
           auth: {
             // TODO: replace `user` and `pass` values from <https://forwardemail.net>
             user: "thuhan445566@gmail.com",
-            pass: "rklb ifay wjnf vsvy",
+            pass: "ooug xjmy nxnl ytdx",
           },
         });
 

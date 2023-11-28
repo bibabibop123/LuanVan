@@ -84,6 +84,7 @@ app.engine(
       //   console.log(a,b);
       //   return a?.toString()==b?.toString()?"selected":""
       // },
+      equalString:(a,b)=>a?.toString()==b?.toString(),
       formatNumber: formatNumber,
       formatDate: formatDate,
       different :(a,b)=>a!=b,

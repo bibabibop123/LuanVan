@@ -192,8 +192,7 @@
   text-transform: uppercase;
   clear: both;
   font-family: 'Roboto Slab', serif;
-  margin-top: 20px;
-  margin-bottom: 100px !important; }
+  margin-top: 20px; }
 
 img {
   height: 70%;
@@ -695,7 +694,7 @@ table {
     width: 50px !important;
     border: 1px solid;
     float: right;
-    margin-right: 470px;
+    margin-right: 570px;
     margin-top: 5px; }
 
 #cars {

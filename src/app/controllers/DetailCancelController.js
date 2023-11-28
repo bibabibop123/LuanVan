@@ -7,9 +7,16 @@ const city = require('../../raw.githubusercontent.com_kenzouno1_DiaGioiHanhChinh
 class DetailcancelController {
     async DetailCancel ( req, res, next) {
         // console.log(req.body)
+        const cart = req.session.cart || [];
         const order = await Order.findById(req.params.id).populate('addressId').lean();
         const staffShip = await StaffShip.find(req.params).lean();
         let listAddress = order.addressId;
+        // console.log(order.products)
+        cart.push(...order.products);
+
+        // Cập nhật session với cart mới
+        req.session.cart = cart;
+        // console.log('Danh sách sản phẩm trong cart:', cart);
 
         return res.render('detailCancel',{order:order,listAddress:listAddress,staffShip:staffShip});
     }

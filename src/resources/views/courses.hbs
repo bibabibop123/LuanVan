@@ -41,7 +41,14 @@
 					<div class="card-body">
 						<a href="/detail/{{this.name_content}}" class="text-dark">
 							<h5 class="card-title break-word text-center">{{this.name_content}}</h5>
-							<p class="card-text text-center">{{this.total}}$</p>
+																<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+							<p style="color: red;" class="card-text text-center">{{formatNumber this.total}}$</p>
 						</a>
 					</div>
 				</div>
@@ -50,3 +57,15 @@
 		</div>
 	</div>
 </div>
+
+<style>
+ .rating i {
+	font-size: 10px;
+	color: #e3c01c;
+
+}
+
+.rating {
+	margin-left: 36%;
+}
+</style>

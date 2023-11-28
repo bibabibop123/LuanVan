@@ -51,11 +51,12 @@ class AdminProductController {
         const  courses = await Course.findById(req.params.id).populate('categoryId').lean();
         const imageProduct = await image.find({productId: courses._id}).lean();
         const detailProduct = await detail.find({productId: courses._id}).lean();
-        const categoryData = await Category.find({categoryId: Category._id}).lean();
-        // console.log('detail', courses)
+        const categoryData = (await Category.find({categoryId: Category._id}).lean()).map(category =>({...category,_id: category._id.toString()}));
+        const categoryId = courses.categoryId._id.toString()
+        console.log('detail', courses)
+        console.log('categoryId', categoryId);
 
-
-        return res.render('admin/update-admin', {categoryData:categoryData,courses :courses,imageProduct:imageProduct,detailProduct:detailProduct,layout:'admin'})
+        return res.render('admin/update-admin', {categoryData:categoryData,courses :courses,imageProduct:imageProduct,detailProduct:detailProduct,categoryId,layout:'admin'})
     }
 
     async deleteCourses(req, res, next){
