@@ -20,10 +20,10 @@ class AdminDetailOrderController {
     }
 
     async adminAcceptOrder(req,res,next){
-        const order = await Order.findById(req.params.id).populate('addressId').populate('staffId').lean();
+        const order = await Order.findById(req.params.id).populate('addressId').lean();
         // console.log(req.staff);
 
-        await Order.findByIdAndUpdate(req.params.id,{staffId:req.staff._id},{$set:{status:PaymentStatus.xac_nhan}});
+        await Order.findByIdAndUpdate(req.params.id, {$set:{status:PaymentStatus.xac_nhan}});
         // await Order.create({staffId:req.staff._id})
         const nodemailer = require("nodemailer");
         const transporter = nodemailer.createTransport({

@@ -77,6 +77,7 @@ app.engine(
     extname: ".hbs",
     helpers: {
       or: (a, b, c) => a !== b || a !== c || b !== c,  
+      and: (a, b) => a == b ,
       sum: (a, b) => a + b,
       multiply:(a,b)=>a*b,
       equal: (a,b)=> a ==b,

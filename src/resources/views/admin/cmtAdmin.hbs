@@ -1,0 +1,39 @@
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <p class="title-order">Bình luận</p>
+        <form action="/admin/cmtAdmin" method="get">
+            <div>
+            <input type="text" name="keyword" class="filter-search" placeholder="tìm tên khách hàng">
+
+            <button class="filter-btn" type="submit">Tìm</button>
+            </div>
+        </form>
+    <table class="tbl-order table table-striped">
+        <thead>
+            <tr>
+            <th class="order-stt" style="text-align: center;">STT</th>
+            <th class="order-total">Tên Khách hàng</th>
+            <th class="order-number">Tên sản phẩm</th>
+            <th class="order-name">Nội dung bình luận</th>
+            <th class="order-total">Thời gian</th>
+            <th class="order-total">Xét duyệt</th>
+            {{!-- <th class="order-status">Chi tiết đơn hàng</th> --}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each cmt}}
+                <tr class="product">
+                    <th scope="row">{{@index}}</th>
+                    <td class="product-name">{{this.username}}</td>
+                    <td class="product-name" style="text-align: center;">{{this.productId.name_content}}</td>
+                    <td class="product-name" style="text-align: center;">{{this.content}}</td>
+                    <td class="product-name">{{formatDate this.createdAt}}</td>
+                    <td class="product-name">
+                        <a href="/admin/cmtAdmin/cmt/delete/{{this._id}}" onclick="if (confirm('Bạn có muốn xóa ?')){return true;}else{event.stopPropagation(); event.preventDefault();};" data-id="{{this._id}}" title="Link Title">
+                              Xóa
+                        </a>
+                    </td>
+                </tr>
+              {{/each}}
+        </tbody>
+    </table>
+</div>

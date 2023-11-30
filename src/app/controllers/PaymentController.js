@@ -8,7 +8,8 @@ const paypal = require('paypal-rest-sdk');
 const city = require('../../raw.githubusercontent.com_kenzouno1_DiaGioiHanhChinhVN_master_data.json_fbclid=IwAR2C1lNSPtkItOSeMoDlQpfr61OA_CmBcXo3t54WW_lQNNDylh5ZUOhO9Mc.json')
 // const Paypal = require('../../public/js/paypal');
 
-
+const BANK_NAME= 'vietcombank';
+const BANK_ACCOUNT='0891000657068';
 class PaymentController {
     async payment ( req, res, next) {
         if(!req.user){
@@ -104,14 +105,12 @@ class PaymentController {
 
     async confirmPayment(req,res){
         const id = req.params.id;
-        const BANK_NAME= 'vietcombank';
-        const BANK_ACCOUNT='0891000657068';
 
         if(!id){
             req.flash('message', 'Lỗi.... !!!');
             return res.redirect('/');
         }
-        const order = await OrderModel.findOne({code:id,status:PaymentStatus.doi_thanh_toan});
+        const order = await OrderModel.findOne({code:id,status:PaymentStatus.thanh_toan_qr});
         // console.log(order);
         if(!order){
             req.flash('message', 'Lỗi.... !!!');

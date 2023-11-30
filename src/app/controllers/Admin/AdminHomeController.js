@@ -1,5 +1,6 @@
 const Course = require('../../models/Course');
 const Order = require('../../models/Order');
+const cmt = require('../../models/comment');
 const moment = require('moment');
 const { PaymentStatus } = require('../../../config/enum.config');
 
@@ -8,7 +9,8 @@ class AdminHomeController {
         const products = await Course.find().lean();
         const order = await Order.find({ paymentMethod: 'cod'}).lean();
 
-
+        const comment = await cmt.find().limit(4).sort({ createdAt: -1 }).lean();
+        console.log(comment);
         const orderOnline = await Order.find({
           $or: [
             { paymentMethod: 'paypal' },
@@ -52,7 +54,7 @@ class AdminHomeController {
               createdAtDate.getMonth() === today.getMonth() &&
               createdAtDate.getFullYear() === today.getFullYear()
             ) {
-                totalForToday += order.total - order.totalImport;
+                totalForToday += order.total 
             }
           }
         });
@@ -70,7 +72,7 @@ class AdminHomeController {
 
         const totalInMonth = orderTotal.reduce((total, order) => {
         if (order.createdAt >= startDate && order.createdAt <= endDate) {
-            return total += order.total - order.totalImport;
+            return total += order.total 
         }
         return total;
         }, 0);
@@ -87,7 +89,7 @@ class AdminHomeController {
             const orderDate = new Date(order.createdAt);
             return orderDate.getFullYear() === currentYear;
           })
-          .reduce((acc, order) => acc + order.total - order.totalImport, 0);
+          .reduce((acc, order) => acc + order.total, 0);
 
           const totalForCurrentYearFormat = totalForCurrentYear.toLocaleString('en-US');
         
@@ -97,7 +99,7 @@ class AdminHomeController {
         let totalSum = 0;
         orderTotal.forEach(order => {
           if (order.total) {
-            totalSum += order.total - order.totalImport;
+            totalSum += order.total;
           }
         });
 
@@ -319,7 +321,7 @@ class AdminHomeController {
         totalOfMonth1:totalOfMonth1, totalOfMonth2:totalOfMonth2, totalOfMonth3:totalOfMonth3, totalOfMonth4:totalOfMonth4,
           totalOfMonth5:totalOfMonth5, totalOfMonth6:totalOfMonth6, totalOfMonth7:totalOfMonth7, totalOfMonth8:totalOfMonth8,
           totalOfMonth9:totalOfMonth9, totalOfMonth10:totalOfMonth10, totalOfMonth11:totalOfMonth11, totalOfMonth12:totalOfMonth12,
-          evaluateGood:evaluateGood, evaluateNotGood:evaluateNotGood, totalOnlineFormat:totalOnlineFormat
+          evaluateGood:evaluateGood, evaluateNotGood:evaluateNotGood, totalOnlineFormat:totalOnlineFormat, comment:comment
         });
     }
 

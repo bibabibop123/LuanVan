@@ -68,7 +68,7 @@
                   {{/each}}<br>
                 </td>
                 <td>{{this.totalQuantity}}</td>
-                <td>{{this.total}}</td>
+                <td>{{formatNumber this.total}}</td>
                 <td><a href="/detailOrder/{{this._id}}">chi tiết</a></td>
               </tr>
             {{/if}}
@@ -91,7 +91,7 @@
                   {{/each}}<br>
                 </td>
                 <td>{{this.totalQuantity}}</td>
-                <td>{{this.total}}</td>
+                <td>{{formatNumber this.total}}</td>
                 <td><a href="/detailComfirm/{{this._id}}">chi tiết</a></td>
               </tr>
             {{/if}}
@@ -114,7 +114,7 @@
                   {{/each}}<br>
                 </td>
                 <td>{{this.totalQuantity}}</td>
-                <td>{{this.total}}</td>
+                <td>{{formatNumber this.total}}</td>
                 <td><a href="/detailShipping/{{this._id}}">chi tiết</a></td>
               </tr>
             {{/if}}
@@ -137,7 +137,7 @@
                   {{/each}}<br>
                 </td>
                 <td>{{this.totalQuantity}}</td>
-                <td>{{this.total}}</td>
+                <td>{{formatNumber this.total}}</td>
                 <td><a href="/detailComplete/{{this._id}}">chi tiết</a></td>
               </tr>
             {{/if}}
@@ -160,7 +160,7 @@
                   {{/each}}<br>
                 </td>
                 <td>{{this.totalQuantity}}</td>
-                <td>{{this.total}}</td>
+                <td>{{formatNumber this.total}}</td>
                 <td><a href="/detailCancel/{{this._id}}">chi tiết</a></td>
               </tr>
             {{/if}}
