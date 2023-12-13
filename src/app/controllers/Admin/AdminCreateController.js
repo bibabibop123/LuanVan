@@ -28,9 +28,11 @@ class AdminCreateController {
     }
 
     async adminPost (req, res, next) {
+        
         const  courses = await Course.create(req.body);
         const category = await Category.findById(req.body.category).lean();
-        console.log(req.body)
+        // console.log(req.body)
+        
         await image.create({
             productId: courses._id,
             image1: req.body.image1,

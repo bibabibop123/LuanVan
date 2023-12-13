@@ -37,11 +37,11 @@
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
                 </svg> Đơn đã hoàn thành</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="/admin/order-cancel/">
+            {{!-- <li class="nav-item"><a class="nav-link" href="/admin/order-cancel/">
                 <svg class="nav-icon">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
                 </svg> Đơn đã hủy</a>
-            </li>
+            </li> --}}
             {{else if (equal staff.roleId.roleType 5)}}
                           <li class="nav-title">Trạng thái đơn</li>
                           <li class="nav-item"><a class="nav-link" href="/admin/order/">
@@ -74,11 +74,11 @@
                               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
                             </svg> Đơn đã hoàn thành</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="/admin/order-cancel/">
+                        {{!-- <li class="nav-item"><a class="nav-link" href="/admin/order-cancel/">
                             <svg class="nav-icon">
                               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
                             </svg> Đơn đã hủy</a>
-                        </li>
+                        </li> --}}
             {{else}}
         {{/if}}
 

@@ -12,6 +12,10 @@ class ConfirmPasswordController {
             req.flash('message', 'Mã xác nhận không chính xác !!!');
             return res.redirect('back');
         } 
+        if(req.body.newPassword != req.body.confirmPassword){
+            req.flash('message', 'Mật Khẩu mới không giống nhau !!!');
+            return res.redirect('back');
+        }
         req.flash('message', 'Tạo mật khẩu mới thành công !!!');
         return res.redirect('/login');
         // day verification:req.body.confirmMail

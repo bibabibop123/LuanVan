@@ -14,13 +14,27 @@ function generateRandomString(length) {
   }
 class ForgotPasswordController {
     async forgotPassword ( req, res, next) {
+
         
-        return res.render('forgotPassword');
+      return res.render('forgotPassword');
+
     }
 
     async confirmEmail (req, res, next) {
 
         // console.log(req.body.emailComfirm);
+        const user = await userModel.find().lean();
+        const emailToConfirm = req.body.emailComfirm;
+
+        const matchingUser = user.find((userItem) => userItem.email === emailToConfirm);
+
+        if (matchingUser) {
+          console.log('Email có:', emailToConfirm);
+        } else {
+          req.flash('message', 'email hiện chưa được đăng ký');
+          return res.redirect('back');
+        }
+        
         const nodemailer = require("nodemailer");
 
         const transporter = nodemailer.createTransport({

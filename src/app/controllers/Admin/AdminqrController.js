@@ -15,7 +15,7 @@ class AdminQrController {
             
         }
         
-        const orders = await Order.find(query).lean();
+        const orders = await Order.find(query).sort({ createdAt: -1 }).lean();
 
         return res.render('admin/qrAdmin',{layout:'admin',orders:orders});
     }
